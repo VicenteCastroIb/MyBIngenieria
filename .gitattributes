@@ -1,0 +1,10 @@
+# Normaliza los finales de línea: LF en el repositorio, sin importar el SO
+* text=auto eol=lf
+
+# Tratar los recursos gráficos como binarios
+*.webp binary
+*.jpg  binary
+*.jpeg binary
+*.png  binary
+*.ico  binary
+*.woff2 binary

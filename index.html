@@ -1,0 +1,1335 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ============================================================
+     SEO PRINCIPAL
+     ============================================================ -->
+<title>M&amp;B Ingeniería y Construcción SpA | Consultoría y Obras Civiles en Chile</title>
+<meta name="description" content="M&amp;B Ingeniería y Construcción SpA: asesorías técnicas, revisión de proyectos, estudios de impacto vial, memorias de cálculo estructural, accesos a predios y obras civiles para clientes públicos y privados en Chile. Solicita tu cotización.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.mybingenieria.com/">
+<meta name="theme-color" content="#0A3154">
+
+<!-- ============================================================
+     OPEN GRAPH / TWITTER CARD
+     Reemplaza og-image.jpg por una imagen real 1200x630 px.
+     ============================================================ -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="M&amp;B Ingeniería y Construcción SpA">
+<meta property="og:title" content="M&amp;B Ingeniería y Construcción SpA | Consultoría y Obras Civiles en Chile">
+<meta property="og:description" content="Soluciones integrales de ingeniería, consultoría técnica y construcción de obras civiles para clientes públicos y privados en Chile.">
+<meta property="og:url" content="https://www.mybingenieria.com/">
+<meta property="og:image" content="https://www.mybingenieria.com/og-image.jpg">
+<meta property="og:locale" content="es_CL">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="M&amp;B Ingeniería y Construcción SpA">
+<meta name="twitter:description" content="Ingeniería, consultoría técnica y construcción de obras civiles en Chile. Solicita tu cotización.">
+<meta name="twitter:image" content="https://www.mybingenieria.com/og-image.jpg">
+
+<!-- ============================================================
+     FAVICON (SVG inline como data URI — sin peticiones extra)
+     ============================================================ -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230A3154'/%3E%3Ctext x='50%25' y='50%25' dy='.1em' text-anchor='middle' dominant-baseline='middle' font-family='Montserrat,Arial,sans-serif' font-size='26' font-weight='700' fill='%23FFFFFF'%3EM%26B%3C/text%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230A3154'/%3E%3Ctext x='50%25' y='50%25' dy='.1em' text-anchor='middle' dominant-baseline='middle' font-family='Arial,sans-serif' font-size='24' font-weight='700' fill='%23FFFFFF'%3EM%26B%3C/text%3E%3C/svg%3E">
+
+<!-- ============================================================
+     FUENTES (Google Fonts) — Poppins (títulos) + Inter (cuerpo)
+     ============================================================ -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<!-- Precarga del hero para mejorar LCP -->
+<link rel="preload" as="image" href="hero-bg.webp">
+
+<!-- ============================================================
+     DATOS ESTRUCTURADOS JSON-LD — GeneralContractor
+     NOTA: Completar "address" cuando se confirme la dirección.
+     ============================================================ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "GeneralContractor",
+  "name": "M&B Ingeniería y Construcción SpA",
+  "url": "https://www.mybingenieria.com/",
+  "image": "https://www.mybingenieria.com/og-image.jpg",
+  "email": "contacto@mybingenieria.com",
+  "telephone": "+56963411875",
+  "priceRange": "$$",
+  "description": "Ingeniería, consultoría técnica y construcción de obras civiles para clientes públicos y privados en Chile.",
+  "areaServed": {
+    "@type": "Country",
+    "name": "Chile"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Av. Apoquindo 4501, Oficina 802",
+    "addressLocality": "Las Condes",
+    "addressRegion": "Región Metropolitana",
+    "postalCode": "7550000",
+    "addressCountry": "CL"
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "09:00",
+      "closes": "18:00"
+    }
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+56963411875",
+    "contactType": "sales",
+    "areaServed": "CL",
+    "availableLanguage": ["Spanish"]
+  }
+}
+</script>
+
+<style>
+/* ============================================================
+   0. VARIABLES Y TOKENS DE DISEÑO
+   ============================================================ */
+:root{
+  /* Paleta corporativa */
+  --azul:#0A3154;          /* primario */
+  --azul-900:#072235;      /* variante oscura para degradados */
+  --azul-700:#0F4676;      /* variante media (hover) */
+  --acento:#F5A623;        /* naranja seguridad — CTAs secundarios, íconos, detalles */
+  --acento-600:#d98d0c;    /* hover acento */
+  --wpp:#25D366;           /* verde WhatsApp (solo botones WhatsApp) */
+  --wpp-600:#1da851;
+  --blanco:#FFFFFF;
+  --gris-claro:#F5F7FA;    /* fondos de sección alternos */
+  --gris-borde:#E2E8F0;
+  --texto:#333333;         /* texto cuerpo */
+  --texto-suave:#5b6672;
+
+  /* Tipografía */
+  --f-titulo:'Poppins','Montserrat',Arial,sans-serif;
+  --f-cuerpo:'Inter','Open Sans',Arial,sans-serif;
+
+  /* Layout */
+  --max:1200px;
+  --radio:14px;
+  --radio-sm:10px;
+  --sombra:0 4px 16px rgba(10,49,84,.08);
+  --sombra-hover:0 12px 32px rgba(10,49,84,.16);
+  --header-h:64px;
+  --transicion:.25s ease;
+}
+
+/* ============================================================
+   1. RESET BÁSICO
+   ============================================================ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--header-h) + 12px);-webkit-text-size-adjust:100%}
+body{
+  font-family:var(--f-cuerpo);
+  color:var(--texto);
+  background:var(--blanco);
+  line-height:1.65;
+  font-size:16px;
+  overflow-x:hidden;
+}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none}
+ul{list-style:none}
+h1,h2,h3,h4{font-family:var(--f-titulo);color:var(--azul);line-height:1.2;font-weight:700}
+
+/* Accesibilidad: enlace para saltar al contenido */
+.skip-link{
+  position:absolute;left:-999px;top:0;z-index:1000;
+  background:var(--azul);color:#fff;padding:12px 18px;border-radius:0 0 8px 0;
+}
+.skip-link:focus{left:0}
+
+/* Foco visible consistente para navegación por teclado */
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{
+  outline:3px solid var(--acento);
+  outline-offset:2px;
+  border-radius:4px;
+}
+
+/* ============================================================
+   2. UTILIDADES DE LAYOUT
+   ============================================================ */
+.container{width:100%;max-width:var(--max);margin:0 auto;padding:0 20px}
+.section{padding:56px 0}
+.section--alt{background:var(--gris-claro)}
+.section__head{text-align:center;max-width:640px;margin:0 auto 36px}
+.section__eyebrow{
+  display:inline-block;font-family:var(--f-titulo);font-weight:600;
+  font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--acento-600);margin-bottom:10px;
+}
+.section__title{font-size:1.6rem;margin-bottom:12px}
+.section__text{color:var(--texto-suave);font-size:1rem}
+
+/* ============================================================
+   3. BOTONES
+   Touch target mínimo 44x44px garantizado con min-height.
+   ============================================================ */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  min-height:48px;padding:12px 22px;
+  font-family:var(--f-titulo);font-weight:600;font-size:.95rem;
+  border-radius:var(--radio-sm);
+  transition:transform var(--transicion),box-shadow var(--transicion),background var(--transicion);
+  text-align:center;
+}
+.btn:hover{transform:translateY(-2px)}
+.btn:active{transform:translateY(0)}
+
+.btn--primary{background:var(--acento);color:var(--azul-900);box-shadow:0 4px 14px rgba(245,166,35,.35)}
+.btn--primary:hover{background:var(--acento-600);box-shadow:0 10px 24px rgba(245,166,35,.4)}
+
+.btn--ghost{background:transparent;color:var(--blanco);border:2px solid rgba(255,255,255,.7)}
+.btn--ghost:hover{background:rgba(255,255,255,.12);border-color:#fff}
+
+.btn--wpp{background:var(--wpp);color:#fff;box-shadow:0 4px 14px rgba(37,211,102,.35)}
+.btn--wpp:hover{background:var(--wpp-600)}
+
+.btn--solid{background:var(--azul);color:#fff}
+.btn--solid:hover{background:var(--azul-700)}
+
+.btn--block{width:100%}
+
+/* ============================================================
+   4. HEADER STICKY + NAVEGACIÓN
+   ============================================================ */
+.header{
+  position:sticky;top:0;z-index:100;
+  background:rgba(255,255,255,.96);
+  backdrop-filter:saturate(180%) blur(8px);
+  border-bottom:1px solid var(--gris-borde);
+  height:var(--header-h);
+}
+.header__inner{
+  display:flex;align-items:center;justify-content:space-between;
+  height:100%;
+}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--f-titulo);font-weight:700;color:var(--azul)}
+.brand__mark{
+  width:38px;height:38px;flex:0 0 38px;border-radius:9px;
+  background:var(--azul);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-size:.85rem;letter-spacing:.02em;
+}
+.brand__name{font-size:1rem;line-height:1.15}
+.brand__name span{display:block;font-size:.68rem;font-weight:500;color:var(--texto-suave);letter-spacing:.04em}
+
+/* Navegación desktop (oculta en mobile) */
+.nav{display:none}
+.nav__list{display:flex;align-items:center;gap:6px}
+.nav__link{
+  display:inline-flex;align-items:center;min-height:44px;padding:0 14px;
+  font-family:var(--f-titulo);font-weight:500;font-size:.92rem;color:var(--azul);
+  border-radius:8px;transition:background var(--transicion),color var(--transicion);
+}
+.nav__link:hover{background:var(--gris-claro);color:var(--azul-700)}
+
+/* Botón hamburguesa (solo mobile) */
+.hamburger{
+  width:44px;height:44px;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:5px;border-radius:8px;
+}
+.hamburger span{
+  display:block;width:24px;height:2px;background:var(--azul);border-radius:2px;
+  transition:transform var(--transicion),opacity var(--transicion);
+}
+.hamburger[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger[aria-expanded="true"] span:nth-child(2){opacity:0}
+.hamburger[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* Panel de menú mobile a pantalla completa */
+.mobile-menu{
+  position:fixed;inset:0;z-index:99;
+  background:var(--azul);
+  display:flex;flex-direction:column;justify-content:center;
+  padding:40px 28px;
+  transform:translateX(100%);
+  transition:transform .28s ease;
+  visibility:hidden;
+}
+.mobile-menu.is-open{transform:translateX(0);visibility:visible}
+.mobile-menu__list{display:flex;flex-direction:column;gap:6px}
+.mobile-menu__link{
+  display:block;padding:16px 4px;
+  font-family:var(--f-titulo);font-weight:600;font-size:1.25rem;color:#fff;
+  border-bottom:1px solid rgba(255,255,255,.12);
+}
+.mobile-menu__link:hover{color:var(--acento)}
+.mobile-menu .btn{margin-top:26px}
+
+body.no-scroll{overflow:hidden}
+
+/* ============================================================
+   5. HERO
+   Fondo: imagen real de obra (hero-bg.webp) + overlay degradado azul.
+   ============================================================ */
+.hero{
+  position:relative;
+  min-height:calc(100svh - var(--header-h));
+  display:flex;align-items:center;
+  color:#fff;
+  /* Overlay degradado azul (NO fondo plano) sobre la fotografía */
+  background:
+    linear-gradient(160deg, rgba(7,34,53,.92) 0%, rgba(10,49,84,.78) 45%, rgba(10,49,84,.55) 100%),
+    url('hero-bg.webp') center/cover no-repeat;
+}
+.hero__inner{padding:52px 0 64px}
+.hero h1{
+  color:#fff;font-size:2rem;line-height:1.18;max-width:16ch;margin-bottom:16px;
+}
+.hero__lead{font-size:1.05rem;max-width:46ch;margin-bottom:28px;color:rgba(255,255,255,.92)}
+.hero__ctas{display:flex;flex-direction:column;gap:12px;max-width:340px}
+
+/* ============================================================
+   6. QUIÉNES SOMOS
+   ============================================================ */
+.about__grid{display:grid;gap:28px}
+.about__media img{
+  border-radius:var(--radio);box-shadow:var(--sombra);
+  width:100%;aspect-ratio:4/3;object-fit:cover;
+}
+.about__title{font-size:1.5rem;margin-bottom:14px}
+.about__body p{color:var(--texto-suave);margin-bottom:14px}
+.features{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:22px}
+.feature{display:flex;gap:12px;align-items:flex-start}
+.feature__icon{
+  flex:0 0 40px;width:40px;height:40px;border-radius:10px;
+  background:rgba(245,166,35,.14);color:var(--acento-600);
+  display:flex;align-items:center;justify-content:center;
+}
+.feature__icon svg{width:22px;height:22px}
+.feature__txt strong{display:block;font-family:var(--f-titulo);font-size:.92rem;color:var(--azul);margin-bottom:2px}
+.feature__txt span{font-size:.82rem;color:var(--texto-suave)}
+
+/* ============================================================
+   7. SERVICIOS — grid de 6 tarjetas
+   ============================================================ */
+.services__grid{display:grid;gap:18px}
+.service-card{
+  background:#fff;border:1px solid var(--gris-borde);border-radius:var(--radio);
+  padding:24px 22px;
+  transition:transform var(--transicion),box-shadow var(--transicion),border-color var(--transicion);
+}
+.service-card:hover{transform:translateY(-4px);box-shadow:var(--sombra-hover);border-color:transparent}
+.service-card__icon{
+  width:52px;height:52px;border-radius:12px;margin-bottom:16px;
+  background:var(--azul);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+}
+.service-card__icon svg{width:26px;height:26px}
+.service-card h3{font-size:1.1rem;margin-bottom:8px}
+.service-card p{font-size:.9rem;color:var(--texto-suave);margin-bottom:14px}
+.service-card__link{
+  display:inline-flex;align-items:center;gap:6px;min-height:44px;
+  font-family:var(--f-titulo);font-weight:600;font-size:.88rem;color:var(--acento-600);
+}
+.service-card__link svg{width:16px;height:16px;transition:transform var(--transicion)}
+.service-card__link:hover svg{transform:translateX(4px)}
+
+/* ============================================================
+   8. POR QUÉ ELEGIRNOS
+   ============================================================ */
+.why__grid{display:grid;gap:16px}
+.why-card{
+  background:#fff;border-radius:var(--radio);padding:24px 22px;
+  border:1px solid var(--gris-borde);
+  transition:transform var(--transicion),box-shadow var(--transicion);
+}
+.why-card:hover{transform:translateY(-4px);box-shadow:var(--sombra-hover)}
+.why-card__icon{
+  width:46px;height:46px;border-radius:12px;margin-bottom:14px;
+  background:rgba(10,49,84,.08);color:var(--azul);
+  display:flex;align-items:center;justify-content:center;
+}
+.why-card__icon svg{width:24px;height:24px}
+.why-card h3{font-size:1.02rem;margin-bottom:6px}
+.why-card p{font-size:.88rem;color:var(--texto-suave)}
+
+/* ============================================================
+   9. GALERÍA DE PROYECTOS
+   ============================================================ */
+.gallery__grid{display:grid;gap:14px}
+.project{
+  position:relative;overflow:hidden;border-radius:var(--radio);
+  box-shadow:var(--sombra);background:var(--azul);
+}
+.project img{
+  width:100%;aspect-ratio:4/3;object-fit:cover;
+  transition:transform .4s ease;
+}
+.project__label{
+  /* En mobile el título va SIEMPRE visible bajo/encima de la imagen */
+  position:absolute;left:0;right:0;bottom:0;
+  padding:14px 16px;
+  font-family:var(--f-titulo);font-weight:600;font-size:.9rem;color:#fff;
+  background:linear-gradient(to top, rgba(7,34,53,.9), rgba(7,34,53,0));
+}
+
+/* ============================================================
+   10. FORMULARIO DE COTIZACIÓN
+   ============================================================ */
+.quote__grid{display:grid;gap:28px}
+.quote__aside h2{font-size:1.5rem;margin-bottom:12px}
+.quote__aside p{color:var(--texto-suave);margin-bottom:18px}
+.quote__contact li{display:flex;gap:12px;align-items:center;margin-bottom:12px;font-size:.95rem}
+.quote__contact svg{width:20px;height:20px;color:var(--acento-600);flex:0 0 20px}
+
+.form{
+  background:#fff;border:1px solid var(--gris-borde);border-radius:var(--radio);
+  padding:24px 20px;box-shadow:var(--sombra);
+}
+.field{margin-bottom:16px}
+.field label{
+  display:block;font-family:var(--f-titulo);font-weight:500;
+  font-size:.85rem;color:var(--azul);margin-bottom:6px;
+}
+.field .req{color:#c0392b}
+.field input,.field select,.field textarea{
+  width:100%;padding:12px 14px;min-height:48px;
+  font-family:inherit;font-size:.95rem;color:var(--texto);
+  background:var(--gris-claro);
+  border:1.5px solid var(--gris-borde);border-radius:var(--radio-sm);
+  transition:border-color var(--transicion),background var(--transicion);
+}
+.field textarea{min-height:120px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{
+  background:#fff;border-color:var(--azul);outline:none;
+}
+/* Estado de error (HTML5 :invalid tras interacción) */
+.field input:user-invalid,.field select:user-invalid,.field textarea:user-invalid{
+  border-color:#c0392b;background:#fff5f4;
+}
+.field__error{display:none;color:#c0392b;font-size:.78rem;margin-top:5px}
+.field input:user-invalid ~ .field__error,
+.field select:user-invalid ~ .field__error,
+.field textarea:user-invalid ~ .field__error{display:block}
+
+.form__status{
+  display:none;padding:12px 14px;border-radius:var(--radio-sm);
+  font-size:.9rem;margin-bottom:16px;
+}
+.form__status.is-ok{display:block;background:#e7f6ec;color:#1e7a3d;border:1px solid #b7e2c4}
+.form__status.is-error{display:block;background:#fdeceb;color:#b0281c;border:1px solid #f3c6c1}
+
+.form__divider{
+  display:flex;align-items:center;gap:12px;
+  margin:18px 0 14px;color:var(--texto-suave);font-size:.82rem;
+}
+.form__divider::before,.form__divider::after{
+  content:"";flex:1;height:1px;background:var(--gris-borde);
+}
+
+/* ============================================================
+   10b. UBICACIÓN
+   ============================================================ */
+.location__grid{display:grid;gap:22px}
+.location__info .quote__contact li{font-size:.95rem}
+.location__map{
+  border-radius:var(--radio);overflow:hidden;box-shadow:var(--sombra);
+  border:1px solid var(--gris-borde);
+}
+.location__map iframe{
+  display:block;width:100%;height:300px;border:0;
+}
+
+/* ============================================================
+   11. FOOTER
+   ============================================================ */
+.footer{background:var(--azul-900);color:rgba(255,255,255,.82);padding:44px 0 22px}
+.footer__grid{display:grid;gap:26px}
+.footer h3{color:#fff;font-size:1rem;margin-bottom:12px}
+.footer a:hover{color:var(--acento)}
+.footer__contact li{margin-bottom:8px;font-size:.9rem;display:flex;gap:9px;align-items:center}
+.footer__contact svg{width:17px;height:17px;color:var(--acento);flex:0 0 17px}
+.footer__social{display:flex;gap:12px;margin-top:6px}
+.footer__social a{
+  width:40px;height:40px;border-radius:9px;background:rgba(255,255,255,.08);
+  display:flex;align-items:center;justify-content:center;transition:background var(--transicion);
+}
+.footer__social a:hover{background:rgba(255,255,255,.18)}
+.footer__social svg{width:19px;height:19px;color:#fff}
+.footer__bottom{
+  border-top:1px solid rgba(255,255,255,.12);margin-top:28px;padding-top:18px;
+  display:flex;flex-direction:column;gap:8px;
+  font-size:.8rem;color:rgba(255,255,255,.6);
+}
+.footer__bottom a{text-decoration:underline}
+
+/* ============================================================
+   12. BOTÓN FLOTANTE WHATSAPP
+   ============================================================ */
+.wpp-float{
+  position:fixed;right:16px;bottom:16px;z-index:90;
+  width:56px;height:56px;border-radius:50%;
+  background:var(--wpp);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 6px 20px rgba(37,211,102,.45);
+  transition:transform var(--transicion),opacity var(--transicion);
+}
+.wpp-float:hover{transform:scale(1.08)}
+.wpp-float svg{width:30px;height:30px}
+.wpp-float.is-hidden{opacity:0;pointer-events:none;transform:scale(.6)}
+
+/* ============================================================
+   13. MICRO-INTERACCIONES: fade-in al hacer scroll
+   ============================================================ */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.reveal.is-visible{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;transition:none}
+  html{scroll-behavior:auto}
+  *{transition:none!important;animation:none!important}
+}
+
+/* ============================================================
+   14. MEDIA QUERIES — TABLET (>=768px)
+   ============================================================ */
+@media (min-width:768px){
+  .section{padding:72px 0}
+  .section__title{font-size:2rem}
+
+  .hero h1{font-size:2.7rem}
+  .hero__lead{font-size:1.15rem}
+  .hero__ctas{flex-direction:row;max-width:none}
+
+  .about__grid{grid-template-columns:1fr 1fr;align-items:center}
+  .services__grid{grid-template-columns:1fr 1fr}
+  .why__grid{grid-template-columns:1fr 1fr}
+  .gallery__grid{grid-template-columns:1fr 1fr}
+
+  .quote__grid{grid-template-columns:.9fr 1.1fr;align-items:start}
+  .form{padding:28px 26px}
+  .form__row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+
+  .location__grid{grid-template-columns:1fr 1.6fr;align-items:start}
+  .location__map iframe{height:360px}
+
+  .footer__grid{grid-template-columns:1.4fr 1fr 1fr}
+  .footer__bottom{flex-direction:row;justify-content:space-between}
+}
+
+/* ============================================================
+   15. MEDIA QUERIES — DESKTOP (>=1024px / 1200px+)
+   ============================================================ */
+@media (min-width:1024px){
+  :root{--header-h:76px}
+
+  /* Se muestra la navegación completa y se oculta la hamburguesa */
+  .nav{display:block}
+  .hamburger{display:none}
+  .brand__name{font-size:1.05rem}
+
+  .hero h1{font-size:3.1rem}
+
+  .services__grid{grid-template-columns:repeat(3,1fr)}
+  .why__grid{grid-template-columns:repeat(4,1fr)}
+  .gallery__grid{grid-template-columns:repeat(3,1fr)}
+
+  /* Hover con zoom + overlay solo en dispositivos con puntero fino */
+  .project img{transform:scale(1.001)}
+  .project:hover img{transform:scale(1.08)}
+  .project__label{
+    transform:translateY(100%);opacity:0;
+    transition:transform .35s ease,opacity .35s ease;
+    background:linear-gradient(to top, rgba(7,34,53,.92), rgba(7,34,53,.15));
+    padding-top:40px;
+  }
+  .project:hover .project__label,
+  .project:focus-within .project__label{transform:translateY(0);opacity:1}
+}
+
+@media (min-width:1200px){
+  .section__head{margin-bottom:48px}
+}
+</style>
+</head>
+
+<body>
+
+<a class="skip-link" href="#contenido">Saltar al contenido principal</a>
+
+<!-- ============================================================
+     HEADER STICKY
+     ============================================================ -->
+<header class="header">
+  <div class="container header__inner">
+
+    <!-- Logo / nombre -->
+    <a class="brand" href="#inicio" aria-label="M&amp;B Ingeniería y Construcción — Inicio">
+      <span class="brand__mark" aria-hidden="true">M&amp;B</span>
+      <span class="brand__name">M&amp;B Ingeniería<span>y Construcción SpA</span></span>
+    </a>
+
+    <!-- Navegación desktop -->
+    <nav class="nav" aria-label="Navegación principal">
+      <ul class="nav__list">
+        <li><a class="nav__link" href="#inicio">Inicio</a></li>
+        <li><a class="nav__link" href="#quienes-somos">Quiénes Somos</a></li>
+        <li><a class="nav__link" href="#servicios">Servicios</a></li>
+        <li><a class="nav__link" href="#proyectos">Proyectos</a></li>
+        <li><a class="nav__link" href="#contacto">Contacto</a></li>
+        <li><a class="btn btn--primary" href="#cotizacion" style="margin-left:8px">Cotizar</a></li>
+      </ul>
+    </nav>
+
+    <!-- Botón hamburguesa (mobile) -->
+    <button class="hamburger" id="hamburger" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="mobile-menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- Panel de menú mobile a pantalla completa -->
+<nav class="mobile-menu" id="mobile-menu" aria-label="Navegación móvil">
+  <ul class="mobile-menu__list">
+    <li><a class="mobile-menu__link" href="#inicio">Inicio</a></li>
+    <li><a class="mobile-menu__link" href="#quienes-somos">Quiénes Somos</a></li>
+    <li><a class="mobile-menu__link" href="#servicios">Servicios</a></li>
+    <li><a class="mobile-menu__link" href="#proyectos">Proyectos</a></li>
+    <li><a class="mobile-menu__link" href="#contacto">Contacto</a></li>
+  </ul>
+  <a class="btn btn--primary btn--block" href="#cotizacion">Solicitar Cotización</a>
+</nav>
+
+<main id="contenido">
+
+  <!-- ============================================================
+       1. HERO
+       Fondo: hero-bg.webp (reemplazar por foto real de obra vial).
+       ============================================================ -->
+  <section class="hero" id="inicio">
+    <div class="container hero__inner">
+      <h1>Ingeniería y construcción de obras civiles en Chile</h1>
+      <p class="hero__lead">
+        Asesorías técnicas, revisión de proyectos y ejecución de obras para clientes
+        públicos y privados, con foco en cumplimiento normativo y cumplimiento de plazos.
+      </p>
+      <div class="hero__ctas">
+        <a class="btn btn--primary" href="#cotizacion">Solicitar Cotización</a>
+        <!-- Enlace WhatsApp con mensaje precompletado -->
+        <a class="btn btn--wpp"
+           href="https://wa.me/56963411875?text=Hola%20M%26B%20Ingenier%C3%ADa%20y%20Construcci%C3%B3n%2C%20quisiera%20solicitar%20una%20cotizaci%C3%B3n."
+           target="_blank" rel="noopener">
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zM6.597 20.13c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.821 9.821 0 001.523 5.263l-.999 3.648 3.646-.283zM17.5 14.4c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.148-.669.15-.198.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.019-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.099-.198.05-.372-.025-.521-.074-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.71.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/></svg>
+          Escríbenos por WhatsApp
+        </a>
+      </div>
+
+      <!--
+        FILA DE INDICADORES DE CONFIANZA:
+        Omitida deliberadamente porque no se cuenta con cifras confirmadas
+        (años de experiencia / proyectos ejecutados / cobertura regional).
+        Cuando existan datos reales, insertar aquí un bloque .hero__stats.
+      -->
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       2. QUIÉNES SOMOS
+       ============================================================ -->
+  <section class="section" id="quienes-somos">
+    <div class="container">
+      <div class="about__grid reveal">
+
+        <!-- Imagen del equipo / obra en terreno -->
+        <div class="about__media">
+          <img src="equipo-terreno.webp"
+               alt="Equipo de M&amp;B Ingeniería revisando planos junto a maquinaria en una obra en terreno"
+               loading="lazy" width="640" height="480">
+        </div>
+
+        <!-- Texto -->
+        <div class="about__body">
+          <p class="section__eyebrow">Quiénes Somos</p>
+          <h2 class="about__title">Soluciones integrales de ingeniería y construcción</h2>
+          <p>
+            M&amp;B Ingeniería y Construcción SpA entrega servicios de ingeniería, consultoría
+            técnica y ejecución de obras civiles para organismos públicos y empresas privadas
+            en Chile. Acompañamos cada proyecto desde el estudio y la revisión técnica hasta
+            la construcción, asegurando el cumplimiento de la normativa vigente y de los plazos
+            comprometidos.
+          </p>
+          <p>
+            Trabajamos con un equipo multidisciplinario y trato directo con el cliente, para
+            que cada asesoría, memoria de cálculo u obra responda con precisión a los
+            requerimientos técnicos y administrativos del mandante.
+          </p>
+
+          <!-- Diferenciadores con íconos SVG de línea (estilo Lucide) -->
+          <div class="features">
+            <div class="feature">
+              <span class="feature__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><path d="M21 12c0 5-3.5 7.5-8.5 9C7.5 19.5 4 17 4 12V6l8-3 8 3z"/></svg>
+              </span>
+              <span class="feature__txt"><strong>Cumplimiento normativo</strong><span>Proyectos alineados a la normativa chilena vigente.</span></span>
+            </div>
+            <div class="feature">
+              <span class="feature__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20"/><path d="M4 20V8l4-4 4 4"/><path d="M12 20V4l8 6v10"/></svg>
+              </span>
+              <span class="feature__txt"><strong>Experiencia técnica</strong><span>Cálculo estructural, revisión y obras civiles.</span></span>
+            </div>
+            <div class="feature">
+              <span class="feature__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+              </span>
+              <span class="feature__txt"><strong>Plazos de entrega</strong><span>Planificación realista y seguimiento de hitos.</span></span>
+            </div>
+            <div class="feature">
+              <span class="feature__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 18a10 10 0 0 1 20 0"/><path d="M12 8V4"/><path d="M12 4a3 3 0 0 0-3 3h6a3 3 0 0 0-3-3z"/><path d="M2 18h20"/><path d="M2 22h20"/></svg>
+              </span>
+              <span class="feature__txt"><strong>Seguridad en obra</strong><span>Prevención de riesgos como estándar de trabajo.</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       3. SERVICIOS — grid de 6 tarjetas
+       Cada "Consultar" preselecciona el servicio en el formulario.
+       ============================================================ -->
+  <section class="section section--alt" id="servicios">
+    <div class="container">
+      <div class="section__head reveal">
+        <p class="section__eyebrow">Servicios</p>
+        <h2 class="section__title">Qué podemos hacer por su proyecto</h2>
+        <p class="section__text">Consultoría e ingeniería especializada más ejecución de obras, en un solo equipo.</p>
+      </div>
+
+      <div class="services__grid">
+
+        <!-- 1. Asesorías técnicas -->
+        <article class="service-card reveal">
+          <span class="service-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 9h8"/><path d="M8 13h5"/></svg>
+          </span>
+          <h3>Asesorías técnicas</h3>
+          <p>Apoyo especializado a mandantes y unidades técnicas en la toma de decisiones de ingeniería durante el ciclo del proyecto.</p>
+          <a class="service-card__link" href="#cotizacion" data-service="Asesorías técnicas">
+            Consultar
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+          </a>
+        </article>
+
+        <!-- 2. Revisión de proyectos -->
+        <article class="service-card reveal">
+          <span class="service-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M14 3H7a2 2 0 0 0-2 2v10"/><path d="M19 8v3"/><circle cx="11.5" cy="17.5" r="3.5"/><path d="M14 20l2.5 2.5"/></svg>
+          </span>
+          <h3>Revisión de proyectos</h3>
+          <p>Revisión independiente de proyectos de arquitectura y especialidades: consistencia, memorias, planos y cumplimiento normativo.</p>
+          <a class="service-card__link" href="#cotizacion" data-service="Revisión de proyectos">
+            Consultar
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+          </a>
+        </article>
+
+        <!-- 3. Estudios de impacto vial -->
+        <article class="service-card reveal">
+          <span class="service-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19h16"/><path d="M9 19V5l3-2 3 2v14"/><path d="M9 9h6"/><path d="M9 13h6"/></svg>
+          </span>
+          <h3>Estudios de impacto vial</h3>
+          <p>Evaluación de flujos, accesos y mitigaciones viales para permisos y proyectos que generan nueva demanda de transporte.</p>
+          <a class="service-card__link" href="#cotizacion" data-service="Estudios de impacto vial">
+            Consultar
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+          </a>
+        </article>
+
+        <!-- 4. Memorias de cálculo estructural -->
+        <article class="service-card reveal">
+          <span class="service-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M8 6h8"/><path d="M8 10h2"/><path d="M14 10h2"/><path d="M8 14h2"/><path d="M14 14h2"/><path d="M8 18h8"/></svg>
+          </span>
+          <h3>Memorias de cálculo estructural</h3>
+          <p>Diseño y cálculo de estructuras de hormigón armado, acero y albañilería, con memoria y planos para permisos y construcción.</p>
+          <a class="service-card__link" href="#cotizacion" data-service="Memorias de cálculo estructural">
+            Consultar
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+          </a>
+        </article>
+
+        <!-- 5. Accesos a predios -->
+        <article class="service-card reveal">
+          <span class="service-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22L9 2h6l5 20"/><path d="M12 6v2"/><path d="M12 12v2"/><path d="M12 18v2"/></svg>
+          </span>
+          <h3>Accesos a predios</h3>
+          <p>Diseño y construcción de accesos vehiculares a predios agrícolas, industriales y habitacionales, con carpeta técnica para la autoridad vial.</p>
+          <a class="service-card__link" href="#cotizacion" data-service="Construcción de accesos a predios">
+            Consultar
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+          </a>
+        </article>
+
+        <!-- 6. Construcción y obras civiles -->
+        <article class="service-card reveal">
+          <span class="service-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-6h6v6"/><path d="M9 10h.01"/><path d="M15 10h.01"/></svg>
+          </span>
+          <h3>Construcción y obras civiles</h3>
+          <p>Ejecución de obras civiles: fundaciones, pavimentos, obras de drenaje, muros y mejoramientos, con control de calidad y avance.</p>
+          <a class="service-card__link" href="#cotizacion" data-service="Construcción y obras civiles">
+            Consultar
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+          </a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       4. POR QUÉ ELEGIRNOS
+       ============================================================ -->
+  <section class="section" id="por-que-elegirnos">
+    <div class="container">
+      <div class="section__head reveal">
+        <p class="section__eyebrow">Por qué elegirnos</p>
+        <h2 class="section__title">Un socio técnico confiable</h2>
+      </div>
+
+      <div class="why__grid">
+        <article class="why-card reveal">
+          <span class="why-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg>
+          </span>
+          <h3>Cumplimiento normativo</h3>
+          <p>Conocimiento aplicado de la reglamentación chilena de edificación, vialidad y obras públicas.</p>
+        </article>
+
+        <article class="why-card reveal">
+          <span class="why-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 7a4 4 0 1 0-8 0"/><path d="M12 11v3"/><circle cx="7" cy="17" r="3"/><circle cx="17" cy="17" r="3"/><path d="M10 17h4"/></svg>
+          </span>
+          <h3>Equipo multidisciplinario</h3>
+          <p>Estructural, vial y construcción trabajando de forma coordinada en cada encargo.</p>
+        </article>
+
+        <article class="why-card reveal">
+          <span class="why-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </span>
+          <h3>Atención directa</h3>
+          <p>Interlocución directa con el profesional a cargo, sin intermediarios ni traspasos.</p>
+        </article>
+
+        <article class="why-card reveal">
+          <span class="why-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V8l7-5 7 5v13"/><path d="M10 21v-5h4v5"/></svg>
+          </span>
+          <h3>Sector público y privado</h3>
+          <p>Experiencia con licitaciones y mandantes privados: documentación y estándares para ambos.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       5. GALERÍA DE PROYECTOS
+       Placeholders: proyecto-1.webp … proyecto-6.webp
+       ============================================================ -->
+  <section class="section section--alt" id="proyectos">
+    <div class="container">
+      <div class="section__head reveal">
+        <p class="section__eyebrow">Proyectos</p>
+        <h2 class="section__title">Obras y estudios ejecutados</h2>
+        <p class="section__text">Una muestra del tipo de trabajos que desarrollamos en terreno y gabinete.</p>
+      </div>
+
+      <div class="gallery__grid">
+        <figure class="project reveal">
+          <img src="proyecto-1.webp" alt="Acceso vehicular construido hacia un predio agrícola con carpeta de rodado" loading="lazy" width="600" height="450">
+          <figcaption class="project__label">Acceso a predio agrícola</figcaption>
+        </figure>
+        <figure class="project reveal">
+          <img src="proyecto-2.webp" alt="Intersección urbana analizada en un estudio de impacto vial" loading="lazy" width="600" height="450">
+          <figcaption class="project__label">Estudio de impacto vial</figcaption>
+        </figure>
+        <figure class="project reveal">
+          <img src="proyecto-3.webp" alt="Faena de hormigonado de fundaciones en una obra civil urbana" loading="lazy" width="600" height="450">
+          <figcaption class="project__label">Obra civil urbana</figcaption>
+        </figure>
+        <figure class="project reveal">
+          <img src="proyecto-4.webp" alt="Enfierradura de estructura de hormigón armado según memoria de cálculo" loading="lazy" width="600" height="450">
+          <figcaption class="project__label">Estructura de hormigón armado</figcaption>
+        </figure>
+        <figure class="project reveal">
+          <img src="proyecto-5.webp" alt="Construcción de obra de drenaje y alcantarilla en camino rural" loading="lazy" width="600" height="450">
+          <figcaption class="project__label">Obra de drenaje vial</figcaption>
+        </figure>
+        <figure class="project reveal">
+          <img src="proyecto-6.webp" alt="Profesionales revisando planos de un proyecto en terreno" loading="lazy" width="600" height="450">
+          <figcaption class="project__label">Revisión de proyecto en terreno</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       6. FORMULARIO DE COTIZACIÓN
+       ============================================================ -->
+  <section class="section" id="cotizacion">
+    <div class="container">
+      <div class="quote__grid">
+
+        <!-- Columna informativa -->
+        <aside class="quote__aside reveal" id="contacto">
+          <p class="section__eyebrow">Cotización</p>
+          <h2>Cuéntenos su proyecto</h2>
+          <p>Complete el formulario y le responderemos con una propuesta técnica y económica. También puede escribirnos directamente:</p>
+          <ul class="quote__contact">
+            <li>
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <a href="tel:+56963411875">+56 9 6341 1875</a>
+            </li>
+            <li>
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+              <a href="mailto:contacto@mybingenieria.com">contacto@mybingenieria.com</a>
+            </li>
+            <li>
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20z"/></svg>
+              <span>Cobertura: todo Chile</span>
+            </li>
+          </ul>
+        </aside>
+
+        <!-- Formulario -->
+        <div class="reveal">
+          <!--
+            ENVÍO DEL FORMULARIO
+            ────────────────────
+            Opción A (activa): FORMSPREE.
+              1. Crea un formulario gratis en https://formspree.io
+              2. Reemplaza "TU_ID_FORMSPREE" en el action de abajo por tu ID real
+                 (queda como https://formspree.io/f/xxxxxx).
+              El JS envía por fetch (AJAX) y muestra el mensaje de éxito sin recargar.
+
+            Opción B (alternativa): EMAILJS.
+              Ver bloque comentado al final del <script> para el snippet listo.
+          -->
+          <form class="form" id="quote-form"
+                action="https://formspree.io/f/TU_ID_FORMSPREE"
+                method="POST" novalidate>
+
+            <div class="form__status" id="form-status" role="status" aria-live="polite"></div>
+
+            <div class="form__row">
+              <div class="field">
+                <label for="nombre">Nombre completo <span class="req" aria-hidden="true">*</span></label>
+                <input type="text" id="nombre" name="nombre" autocomplete="name"
+                       required minlength="3" placeholder="Ej: Juan Pérez">
+                <p class="field__error">Ingrese su nombre (mínimo 3 caracteres).</p>
+              </div>
+
+              <div class="field">
+                <label for="email">Correo electrónico <span class="req" aria-hidden="true">*</span></label>
+                <input type="email" id="email" name="email" autocomplete="email"
+                       required placeholder="nombre@empresa.cl">
+                <p class="field__error">Ingrese un correo electrónico válido.</p>
+              </div>
+            </div>
+
+            <div class="form__row">
+              <div class="field">
+                <label for="telefono">Teléfono <span class="req" aria-hidden="true">*</span></label>
+                <!-- Patrón para número chileno: +56 9 XXXX XXXX (acepta espacios, guiones y prefijo opcional) -->
+                <input type="tel" id="telefono" name="telefono" autocomplete="tel"
+                       required
+                       pattern="(\+?56)?[\s.\-]?0?9[\s.\-]?\d{4}[\s.\-]?\d{4}"
+                       placeholder="+56 9 1234 5678"
+                       title="Formato chileno: +56 9 1234 5678">
+                <p class="field__error">Ingrese un teléfono chileno válido (+56 9 XXXX XXXX).</p>
+              </div>
+
+              <div class="field">
+                <label for="servicio">Servicio requerido <span class="req" aria-hidden="true">*</span></label>
+                <select id="servicio" name="servicio" required>
+                  <option value="" disabled selected>Seleccione una opción</option>
+                  <option>Asesorías técnicas</option>
+                  <option>Revisión de proyectos</option>
+                  <option>Estudios de impacto vial</option>
+                  <option>Memorias de cálculo estructural</option>
+                  <option>Construcción de accesos a predios</option>
+                  <option>Construcción y obras civiles</option>
+                </select>
+                <p class="field__error">Seleccione el servicio que necesita.</p>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="mensaje">Mensaje <span class="req" aria-hidden="true">*</span></label>
+              <textarea id="mensaje" name="mensaje" required minlength="10"
+                        placeholder="Describa brevemente su proyecto, ubicación y plazos estimados."></textarea>
+              <p class="field__error">Cuéntenos brevemente su proyecto (mínimo 10 caracteres).</p>
+            </div>
+
+            <button type="submit" class="btn btn--primary btn--block" id="submit-btn">
+              Enviar solicitud de cotización
+            </button>
+
+            <div class="form__divider">o</div>
+
+            <!-- Botón secundario: envío por WhatsApp con mensaje precompletado desde el formulario -->
+            <a class="btn btn--wpp btn--block" id="wpp-form-btn"
+               href="https://wa.me/56963411875?text=Hola%20M%26B%20Ingenier%C3%ADa%20y%20Construcci%C3%B3n%2C%20quisiera%20solicitar%20una%20cotizaci%C3%B3n."
+               target="_blank" rel="noopener">
+              <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zM6.597 20.13c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.821 9.821 0 001.523 5.263l-.999 3.648 3.646-.283zM17.5 14.4c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.148-.669.15-.198.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.019-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.099-.198.05-.372-.025-.521-.074-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.71.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/></svg>
+              Prefiero WhatsApp
+            </a>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       7. UBICACIÓN
+       Dirección PROVISORIA (ficticia) mientras se confirma la real:
+       Av. Apoquindo 4501, Of. 802, Las Condes, Santiago.
+       Al confirmar la dirección definitiva, actualizar aquí, el <iframe>
+       de más abajo, el footer y el bloque "address" del JSON-LD (<head>).
+       ============================================================ -->
+  <section class="section section--alt" id="ubicacion">
+    <div class="container">
+      <div class="section__head reveal">
+        <p class="section__eyebrow">Ubicación</p>
+        <h2 class="section__title">Dónde estamos</h2>
+        <p class="section__text">Con oficina en Santiago y cobertura de proyectos en todo Chile.</p>
+      </div>
+
+      <div class="location__grid reveal">
+        <div class="location__info">
+          <ul class="quote__contact">
+            <li>
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4.5 8-11a8 8 0 1 0-16 0c0 6.5 8 11 8 11z"/><circle cx="12" cy="11" r="3"/></svg>
+              <span>Av. Apoquindo 4501, Oficina 802, Las Condes, Santiago, Región Metropolitana</span>
+            </li>
+            <li>
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+              <span>Atención: lunes a viernes, 09:00 – 18:00</span>
+            </li>
+            <li>
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <a href="tel:+56963411875">+56 9 6341 1875</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="location__map">
+          <iframe
+            title="Mapa de ubicación: Av. Apoquindo 4501, Las Condes, Santiago"
+            src="https://www.google.com/maps?q=Av.+Apoquindo+4501,+Las+Condes,+Santiago,+Chile&z=16&output=embed"
+            loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+
+<!-- ============================================================
+     8. FOOTER
+     ============================================================ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+
+      <div>
+        <h3>M&amp;B Ingeniería y Construcción SpA</h3>
+        <p style="font-size:.9rem;max-width:38ch">
+          Ingeniería, consultoría técnica y construcción de obras civiles para clientes
+          públicos y privados en Chile.
+        </p>
+        <div class="footer__social">
+          <!--
+            Reemplazar "#" por las URLs reales o eliminar los que no correspondan.
+          -->
+          <a href="#" aria-label="LinkedIn de M&amp;B Ingeniería" rel="noopener">
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zM8.34 18.34V10.5H5.67v7.84zM7 9.34a1.55 1.55 0 1 0 0-3.1 1.55 1.55 0 0 0 0 3.1zm11.34 9V13.9c0-2.4-1.28-3.51-2.99-3.51a2.58 2.58 0 0 0-2.34 1.29v-1.1h-2.67v7.84h2.67v-4.13c0-1.09.2-2.14 1.55-2.14s1.35 1.24 1.35 2.21v4.06z"/></svg>
+          </a>
+          <a href="#" aria-label="Instagram de M&amp;B Ingeniería" rel="noopener">
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h3>Contacto</h3>
+        <ul class="footer__contact">
+          <li>
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <a href="tel:+56963411875">+56 9 6341 1875</a>
+          </li>
+          <li>
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+            <a href="mailto:contacto@mybingenieria.com">contacto@mybingenieria.com</a>
+          </li>
+          <li>
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4.5 8-11a8 8 0 1 0-16 0c0 6.5 8 11 8 11z"/><circle cx="12" cy="11" r="3"/></svg>
+            <span>Av. Apoquindo 4501, Of. 802, Las Condes, Santiago</span>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>Enlaces</h3>
+        <ul class="footer__contact">
+          <li><a href="#quienes-somos">Quiénes Somos</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#proyectos">Proyectos</a></li>
+          <li><a href="#cotizacion">Solicitar Cotización</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer__bottom">
+      <span>© <span id="year">2026</span> M&amp;B Ingeniería y Construcción SpA. Todos los derechos reservados.</span>
+      <a href="privacidad.html">Política de privacidad y aviso legal</a>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ============================================================
+     9. BOTÓN FLOTANTE DE WHATSAPP
+     ============================================================ -->
+<a class="wpp-float" id="wpp-float"
+   href="https://wa.me/56963411875?text=Hola%20M%26B%20Ingenier%C3%ADa%20y%20Construcci%C3%B3n%2C%20quisiera%20solicitar%20una%20cotizaci%C3%B3n."
+   target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
+  <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zM6.597 20.13c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.821 9.821 0 001.523 5.263l-.999 3.648 3.646-.283zM17.5 14.4c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.148-.669.15-.198.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.019-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.099-.198.05-.372-.025-.521-.074-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.71.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/></svg>
+</a>
+
+
+<!-- ============================================================
+     JAVASCRIPT VANILLA — sin librerías externas
+     ============================================================ -->
+<script>
+(function(){
+  'use strict';
+
+  var WPP_BASE = 'https://wa.me/56963411875?text=';
+
+  /* --------------------------------------------------------
+     A. MENÚ MOBILE (hamburguesa)
+     -------------------------------------------------------- */
+  var hamburger  = document.getElementById('hamburger');
+  var mobileMenu = document.getElementById('mobile-menu');
+  var wppFloat   = document.getElementById('wpp-float');
+  var lastFocus  = null;
+
+  function openMenu(){
+    lastFocus = document.activeElement;
+    mobileMenu.classList.add('is-open');
+    hamburger.setAttribute('aria-expanded', 'true');
+    hamburger.setAttribute('aria-label', 'Cerrar menú de navegación');
+    document.body.classList.add('no-scroll');
+    wppFloat.classList.add('is-hidden');           // ocultar botón flotante con el menú abierto
+    var firstLink = mobileMenu.querySelector('a');
+    if (firstLink) firstLink.focus();
+  }
+
+  function closeMenu(){
+    mobileMenu.classList.remove('is-open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    hamburger.setAttribute('aria-label', 'Abrir menú de navegación');
+    document.body.classList.remove('no-scroll');
+    wppFloat.classList.remove('is-hidden');
+    if (lastFocus) lastFocus.focus();
+  }
+
+  hamburger.addEventListener('click', function(){
+    if (mobileMenu.classList.contains('is-open')) closeMenu();
+    else openMenu();
+  });
+
+  // Cerrar al pulsar un enlace del menú
+  mobileMenu.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', closeMenu);
+  });
+
+  // Cerrar con Escape
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && mobileMenu.classList.contains('is-open')) closeMenu();
+  });
+
+  /* --------------------------------------------------------
+     B. SERVICIOS → preseleccionar servicio en el formulario
+     -------------------------------------------------------- */
+  var servicioSelect = document.getElementById('servicio');
+  document.querySelectorAll('.service-card__link[data-service]').forEach(function(link){
+    link.addEventListener('click', function(){
+      var val = link.getAttribute('data-service');
+      if (servicioSelect){
+        for (var i = 0; i < servicioSelect.options.length; i++){
+          if (servicioSelect.options[i].value === val || servicioSelect.options[i].text === val){
+            servicioSelect.selectedIndex = i;
+            break;
+          }
+        }
+      }
+    });
+  });
+
+  /* --------------------------------------------------------
+     C. FADE-IN DE SECCIONES AL HACER SCROLL (IntersectionObserver)
+     -------------------------------------------------------- */
+  var reveals = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting){
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(function(el){ io.observe(el); });
+  } else {
+    reveals.forEach(function(el){ el.classList.add('is-visible'); });
+  }
+
+  /* --------------------------------------------------------
+     D. AÑO DINÁMICO EN EL FOOTER
+     -------------------------------------------------------- */
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* --------------------------------------------------------
+     E. WHATSAPP DESDE EL FORMULARIO (mensaje precompletado)
+     -------------------------------------------------------- */
+  var form       = document.getElementById('quote-form');
+  var wppFormBtn  = document.getElementById('wpp-form-btn');
+  var statusBox  = document.getElementById('form-status');
+  var submitBtn  = document.getElementById('submit-btn');
+
+  function buildWppMessage(){
+    var nombre   = (document.getElementById('nombre').value || '').trim();
+    var email    = (document.getElementById('email').value || '').trim();
+    var telefono = (document.getElementById('telefono').value || '').trim();
+    var servicio = servicioSelect.value || '';
+    var mensaje  = (document.getElementById('mensaje').value || '').trim();
+
+    var txt = 'Hola M&B Ingeniería y Construcción, quisiera solicitar una cotización.';
+    if (nombre)   txt += '\n\nNombre: ' + nombre;
+    if (email)    txt += '\nCorreo: ' + email;
+    if (telefono) txt += '\nTeléfono: ' + telefono;
+    if (servicio) txt += '\nServicio: ' + servicio;
+    if (mensaje)  txt += '\nMensaje: ' + mensaje;
+    return WPP_BASE + encodeURIComponent(txt);
+  }
+
+  // Actualiza el href del botón de WhatsApp del formulario al vuelo
+  ['input','change'].forEach(function(evt){
+    form.addEventListener(evt, function(){
+      wppFormBtn.setAttribute('href', buildWppMessage());
+    });
+  });
+  wppFormBtn.setAttribute('href', buildWppMessage());
+
+  /* --------------------------------------------------------
+     F. ENVÍO DEL FORMULARIO
+     --------------------------------------------------------
+     Implementación con FORMSPREE vía fetch (AJAX).
+     - Requiere reemplazar "TU_ID_FORMSPREE" en el action del <form>.
+     - Si aún no está configurado, se avisa al usuario y se ofrece WhatsApp.
+     -------------------------------------------------------- */
+  function showStatus(type, msg){
+    statusBox.className = 'form__status ' + (type === 'ok' ? 'is-ok' : 'is-error');
+    statusBox.textContent = msg;
+    statusBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+
+    // Validación HTML5 nativa
+    if (!form.checkValidity()){
+      form.reportValidity();
+      return;
+    }
+
+    var action = form.getAttribute('action') || '';
+    if (action.indexOf('TU_ID_FORMSPREE') !== -1){
+      showStatus('error',
+        'El envío por correo aún no está configurado. Por favor usa el botón "Prefiero WhatsApp" o escríbenos a contacto@mybingenieria.com.');
+      wppFormBtn.setAttribute('href', buildWppMessage());
+      return;
+    }
+
+    submitBtn.disabled = true;
+    var originalText = submitBtn.textContent;
+    submitBtn.textContent = 'Enviando…';
+
+    fetch(action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    })
+    .then(function(res){
+      if (res.ok){
+        form.reset();
+        wppFormBtn.setAttribute('href', buildWppMessage());
+        showStatus('ok', '¡Gracias! Recibimos tu solicitud. Te contactaremos a la brevedad.');
+      } else {
+        return res.json().then(function(data){
+          var m = (data && data.errors) ? data.errors.map(function(x){return x.message;}).join(', ')
+                                        : 'No se pudo enviar. Intenta nuevamente o usa WhatsApp.';
+          showStatus('error', m);
+        });
+      }
+    })
+    .catch(function(){
+      showStatus('error', 'Hubo un problema de conexión. Intenta nuevamente o escríbenos por WhatsApp.');
+    })
+    .finally(function(){
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalText;
+    });
+  });
+
+  /* --------------------------------------------------------
+     G. ALTERNATIVA: EMAILJS (dejar comentado si usas Formspree)
+     --------------------------------------------------------
+     1. Añade en el <head>:
+        <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"><\/script>
+     2. Reemplaza las claves y descomenta:
+
+     // emailjs.init({ publicKey: 'TU_PUBLIC_KEY' });
+     // form.addEventListener('submit', function(e){
+     //   e.preventDefault();
+     //   if (!form.checkValidity()){ form.reportValidity(); return; }
+     //   submitBtn.disabled = true;
+     //   emailjs.sendForm('TU_SERVICE_ID', 'TU_TEMPLATE_ID', form)
+     //     .then(function(){ form.reset(); showStatus('ok', '¡Gracias! Recibimos tu solicitud.'); })
+     //     .catch(function(){ showStatus('error', 'No se pudo enviar. Usa WhatsApp por favor.'); })
+     //     .finally(function(){ submitBtn.disabled = false; });
+     // });
+     -------------------------------------------------------- */
+
+})();
+</script>
+</body>
+</html>

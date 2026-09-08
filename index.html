@@ -12,6 +12,10 @@
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://www.mybingenieria.com/">
 <meta name="theme-color" content="#0A3154">
+<meta name="theme-color" content="#0A3154" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0c1620" media="(prefers-color-scheme: dark)">
+<!-- Aplica el tema guardado antes del render para evitar parpadeo (FOUC) -->
+<script>try{var t=localStorage.getItem('mb-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
 
 <!-- ============================================================
      OPEN GRAPH / TWITTER CARD
@@ -40,7 +44,7 @@
      ============================================================ -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
 <!-- Precarga del hero para mejorar LCP -->
 <link rel="preload" as="image" href="hero-bg.webp">
@@ -95,52 +99,149 @@
    0. VARIABLES Y TOKENS DE DISEÑO
    ============================================================ */
 :root{
-  /* Paleta corporativa */
+  color-scheme:light;
+
+  /* Paleta corporativa (marca — estable en ambos temas) */
   --azul:#0A3154;          /* primario */
-  --azul-900:#072235;      /* variante oscura para degradados */
+  --azul-900:#072235;      /* variante oscura para degradados / banda de contraste */
   --azul-700:#0F4676;      /* variante media (hover) */
   --acento:#F5A623;        /* naranja seguridad — CTAs secundarios, íconos, detalles */
   --acento-600:#d98d0c;    /* hover acento */
   --wpp:#25D366;           /* verde WhatsApp (solo botones WhatsApp) */
   --wpp-600:#1da851;
   --blanco:#FFFFFF;
-  --gris-claro:#F5F7FA;    /* fondos de sección alternos */
-  --gris-borde:#E2E8F0;
-  --texto:#333333;         /* texto cuerpo */
-  --texto-suave:#5b6672;
+
+  /* Superficies, bordes y texto — tokenizados para modo oscuro */
+  --bg:#FFFFFF;
+  --bg-alt:#F4F7FA;
+  --surface:#FFFFFF;
+  --surface-2:#F2F5F9;
+  --borde:#E2E8F0;
+  --borde-suave:rgba(10,49,84,.07);
+  --texto:#2B333B;
+  --texto-suave:#5B6672;
+  --titulo:#0A3154;
+  --eyebrow:#B06E08;
+  --header-bg:rgba(255,255,255,.82);
+  --mark-bg:var(--azul);
+  --grid-line:rgba(10,49,84,.05);
+
+  /* Aliases retro-compatibles */
+  --gris-claro:var(--bg-alt);
+  --gris-borde:var(--borde);
+
+  /* Estados de formulario */
+  --danger:#C0392B;   --danger-bg:#FFF5F4;
+  --ok:#1E7A3D;   --ok-bg:#E7F6EC;   --ok-bd:#B7E2C4;
+  --err:#B0281C;  --err-bg:#FDECEB;  --err-bd:#F3C6C1;
+
+  /* Sombras en capas */
+  --sombra:0 1px 2px rgba(10,49,84,.06), 0 8px 24px rgba(10,49,84,.08);
+  --sombra-hover:0 2px 8px rgba(10,49,84,.10), 0 22px 48px rgba(10,49,84,.16);
 
   /* Tipografía */
   --f-titulo:'Poppins','Montserrat',Arial,sans-serif;
   --f-cuerpo:'Inter','Open Sans',Arial,sans-serif;
 
+  /* Escala tipográfica fluida (375px → 1200px)
+     Pasos de peso deliberados: 800 (h1/h2) · 700 (h3/h4) · 600 (eyebrow,
+     botones, labels) · 500 (nav) · 400 (cuerpo). */
+  --fs-eyebrow:.8rem;
+  --fs-lead:clamp(1.05rem, .97rem + .55vw, 1.25rem);
+  --fs-h4:1.05rem;
+  --fs-h3:clamp(1.1rem, 1rem + .5vw, 1.35rem);
+  --fs-h2:clamp(1.65rem, 1.1rem + 2.3vw, 2.55rem);
+  --fs-h1:clamp(2.1rem, 1.3rem + 3.7vw, 3.65rem);
+
+  /* Escala de espaciado (base 8px) — usada en paddings de sección y gaps */
+  --sp-1:4px;  --sp-2:8px;   --sp-3:12px;  --sp-4:16px;
+  --sp-5:24px; --sp-6:32px;  --sp-7:40px;  --sp-8:48px;  --sp-10:64px;  --sp-12:80px;
+  --section-y:clamp(64px, 3.5vw + 44px, 104px);
+
   /* Layout */
   --max:1200px;
   --radio:14px;
   --radio-sm:10px;
-  --sombra:0 4px 16px rgba(10,49,84,.08);
-  --sombra-hover:0 12px 32px rgba(10,49,84,.16);
   --header-h:64px;
-  --transicion:.25s ease;
+  --transicion:.22s ease;
+}
+
+/* ============================================================
+   0b. MODO OSCURO
+   Preferencia del sistema (prefers-color-scheme) + override
+   manual mediante [data-theme] en <html>. Paleta pizarra
+   templada, no una simple inversión.
+   ============================================================ */
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --azul-900:#081522;
+    --blanco:#131F2C;
+    --bg:#0C1620;
+    --bg-alt:#0F1E2B;
+    --surface:#131F2C;
+    --surface-2:#182838;
+    --borde:#26394B;
+    --borde-suave:rgba(255,255,255,.07);
+    --texto:rgba(232,239,245,.84);
+    --texto-suave:#93A4B3;
+    --titulo:#EAF1F7;
+    --eyebrow:#F7B93F;
+    --header-bg:rgba(12,22,32,.80);
+    --mark-bg:#1C3B58;
+    --grid-line:rgba(255,255,255,.05);
+    --danger:#F0A199;  --danger-bg:rgba(192,57,43,.14);
+    --ok:#6FD59D;  --ok-bg:rgba(46,160,90,.14);  --ok-bd:rgba(46,160,90,.32);
+    --err:#F0A199; --err-bg:rgba(192,57,43,.16); --err-bd:rgba(192,57,43,.36);
+    --sombra:0 1px 2px rgba(0,0,0,.4), 0 10px 28px rgba(0,0,0,.38);
+    --sombra-hover:0 2px 10px rgba(0,0,0,.5), 0 26px 52px rgba(0,0,0,.52);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --azul-900:#081522;
+  --blanco:#131F2C;
+  --bg:#0C1620;
+  --bg-alt:#0F1E2B;
+  --surface:#131F2C;
+  --surface-2:#182838;
+  --borde:#26394B;
+  --borde-suave:rgba(255,255,255,.07);
+  --texto:rgba(232,239,245,.84);
+  --texto-suave:#93A4B3;
+  --titulo:#EAF1F7;
+  --eyebrow:#F7B93F;
+  --header-bg:rgba(12,22,32,.80);
+  --mark-bg:#1C3B58;
+  --grid-line:rgba(255,255,255,.05);
+  --danger:#F0A199;  --danger-bg:rgba(192,57,43,.14);
+  --ok:#6FD59D;  --ok-bg:rgba(46,160,90,.14);  --ok-bd:rgba(46,160,90,.32);
+  --err:#F0A199; --err-bg:rgba(192,57,43,.16); --err-bd:rgba(192,57,43,.36);
+  --sombra:0 1px 2px rgba(0,0,0,.4), 0 10px 28px rgba(0,0,0,.38);
+  --sombra-hover:0 2px 10px rgba(0,0,0,.5), 0 26px 52px rgba(0,0,0,.52);
 }
 
 /* ============================================================
    1. RESET BÁSICO
    ============================================================ */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:calc(var(--header-h) + 12px);-webkit-text-size-adjust:100%}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--header-h) + 12px);-webkit-text-size-adjust:100%;background:var(--bg)}
 body{
   font-family:var(--f-cuerpo);
   color:var(--texto);
-  background:var(--blanco);
+  background:var(--bg);
   line-height:1.65;
   font-size:16px;
   overflow-x:hidden;
+  transition:background-color .3s ease, color .3s ease;
 }
 img{max-width:100%;height:auto;display:block}
 a{color:inherit;text-decoration:none}
 button{font-family:inherit;cursor:pointer;border:none;background:none}
 ul{list-style:none}
-h1,h2,h3,h4{font-family:var(--f-titulo);color:var(--azul);line-height:1.2;font-weight:700}
+h1,h2,h3,h4{font-family:var(--f-titulo);color:var(--titulo);line-height:1.18;letter-spacing:-.015em}
+h1,h2{font-weight:800;letter-spacing:-.025em}
+h3,h4{font-weight:700}
 
 /* Accesibilidad: enlace para saltar al contenido */
 .skip-link{
@@ -160,15 +261,21 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
    2. UTILIDADES DE LAYOUT
    ============================================================ */
 .container{width:100%;max-width:var(--max);margin:0 auto;padding:0 20px}
-.section{padding:56px 0}
-.section--alt{background:var(--gris-claro)}
-.section__head{text-align:center;max-width:640px;margin:0 auto 36px}
+.section{padding:var(--section-y) 0}
+/* Alternancia intencional blanco / gris claro plano (sin textura) */
+.section--alt{background:var(--bg-alt)}
+.section__head{text-align:center;max-width:640px;margin:0 auto var(--sp-8)}
 .section__eyebrow{
-  display:inline-block;font-family:var(--f-titulo);font-weight:600;
-  font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;
-  color:var(--acento-600);margin-bottom:10px;
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--f-titulo);font-weight:600;
+  font-size:var(--fs-eyebrow);letter-spacing:.16em;text-transform:uppercase;
+  color:var(--eyebrow);margin-bottom:12px;
 }
-.section__title{font-size:1.6rem;margin-bottom:12px}
+.section__head .section__eyebrow::before,
+.section__head .section__eyebrow::after{
+  content:"";width:18px;height:1px;background:currentColor;opacity:.55;
+}
+.section__title{font-size:var(--fs-h2);letter-spacing:-.015em;margin-bottom:12px}
 .section__text{color:var(--texto-suave);font-size:1rem}
 
 /* ============================================================
@@ -204,20 +311,60 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
    4. HEADER STICKY + NAVEGACIÓN
    ============================================================ */
 .header{
-  position:sticky;top:0;z-index:100;
-  background:rgba(255,255,255,.96);
-  backdrop-filter:saturate(180%) blur(8px);
-  border-bottom:1px solid var(--gris-borde);
+  position:fixed;top:0;left:0;right:0;z-index:100;
   height:var(--header-h);
+  background:transparent;
+  border-bottom:1px solid transparent;
+  transition:box-shadow .3s ease, background-color .3s ease, border-color .3s ease;
+}
+/* Al tope de la página el header es parte del hero: sin barra, texto blanco,
+   leve degradado superior para que las palabras se distingan sobre la foto. */
+.header:not(.is-scrolled){
+  background:linear-gradient(180deg, rgba(6,24,40,.58) 0%, rgba(6,24,40,.14) 60%, rgba(6,24,40,0) 100%);
+}
+.header:not(.is-scrolled) .brand,
+.header:not(.is-scrolled) .nav__link,
+.header:not(.is-scrolled) .theme-toggle{color:#fff;text-shadow:0 1px 10px rgba(0,0,0,.35)}
+.header:not(.is-scrolled) .brand__name span{color:rgba(255,255,255,.75)}
+.header:not(.is-scrolled) .hamburger span{background:#fff}
+.header:not(.is-scrolled) .brand__mark{
+  background:rgba(255,255,255,.14);box-shadow:inset 0 0 0 1px rgba(255,255,255,.35);text-shadow:none;
+}
+.header:not(.is-scrolled) .nav__link:hover{background:rgba(255,255,255,.16);color:#fff}
+.header:not(.is-scrolled) .theme-toggle:hover{background:rgba(255,255,255,.16)}
+
+/* Al comenzar el scroll hacia abajo: barra sólida del tema */
+.header.is-scrolled{
+  background:var(--header-bg);
+  backdrop-filter:saturate(180%) blur(10px);
+  -webkit-backdrop-filter:saturate(180%) blur(10px);
+  border-bottom-color:var(--borde);
+  box-shadow:0 1px 0 var(--borde), 0 10px 30px rgba(0,0,0,.06);
 }
 .header__inner{
   display:flex;align-items:center;justify-content:space-between;
   height:100%;
 }
-.brand{display:flex;align-items:center;gap:10px;font-family:var(--f-titulo);font-weight:700;color:var(--azul)}
+.header__actions{display:flex;align-items:center;gap:4px}
+.theme-toggle{
+  width:44px;height:44px;flex:0 0 44px;border-radius:8px;
+  display:inline-flex;align-items:center;justify-content:center;
+  color:var(--titulo);
+  transition:background var(--transicion), color var(--transicion);
+}
+.theme-toggle:hover{background:var(--surface-2)}
+.theme-toggle svg{width:20px;height:20px}
+.theme-toggle .t-moon{display:none}
+[data-theme="dark"] .theme-toggle .t-moon{display:block}
+[data-theme="dark"] .theme-toggle .t-sun{display:none}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]) .theme-toggle .t-moon{display:block}
+  :root:not([data-theme="light"]) .theme-toggle .t-sun{display:none}
+}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--f-titulo);font-weight:700;color:var(--titulo)}
 .brand__mark{
   width:38px;height:38px;flex:0 0 38px;border-radius:9px;
-  background:var(--azul);color:#fff;
+  background:var(--mark-bg);color:#fff;
   display:flex;align-items:center;justify-content:center;
   font-size:.85rem;letter-spacing:.02em;
 }
@@ -229,10 +376,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .nav__list{display:flex;align-items:center;gap:6px}
 .nav__link{
   display:inline-flex;align-items:center;min-height:44px;padding:0 14px;
-  font-family:var(--f-titulo);font-weight:500;font-size:.92rem;color:var(--azul);
+  font-family:var(--f-titulo);font-weight:500;font-size:.92rem;color:var(--titulo);
   border-radius:8px;transition:background var(--transicion),color var(--transicion);
 }
-.nav__link:hover{background:var(--gris-claro);color:var(--azul-700)}
+.nav__link:hover{background:var(--surface-2);color:var(--acento-600)}
 
 /* Botón hamburguesa (solo mobile) */
 .hamburger{
@@ -240,7 +387,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   align-items:center;justify-content:center;gap:5px;border-radius:8px;
 }
 .hamburger span{
-  display:block;width:24px;height:2px;background:var(--azul);border-radius:2px;
+  display:block;width:24px;height:2px;background:var(--titulo);border-radius:2px;
   transition:transform var(--transicion),opacity var(--transicion);
 }
 .hamburger[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
@@ -265,7 +412,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   border-bottom:1px solid rgba(255,255,255,.12);
 }
 .mobile-menu__link:hover{color:var(--acento)}
-.mobile-menu .btn{margin-top:26px}
+.mobile-menu .btn{margin-top:var(--sp-6)}
 
 body.no-scroll{overflow:hidden}
 
@@ -274,95 +421,201 @@ body.no-scroll{overflow:hidden}
    Fondo: imagen real de obra (hero-bg.webp) + overlay degradado azul.
    ============================================================ */
 .hero{
-  position:relative;
-  min-height:calc(100svh - var(--header-h));
+  position:relative;overflow:hidden;
+  min-height:100svh;
   display:flex;align-items:center;
   color:#fff;
-  /* Overlay degradado azul (NO fondo plano) sobre la fotografía */
+  /* Overlay degradado azul que se desvanece hacia la derecha:
+     el texto (a la izquierda) queda legible y la fotografía se ve
+     en su color natural en el costado derecho. */
   background:
-    linear-gradient(160deg, rgba(7,34,53,.92) 0%, rgba(10,49,84,.78) 45%, rgba(10,49,84,.55) 100%),
+    linear-gradient(100deg,
+      rgba(7,34,53,.94) 0%,
+      rgba(9,42,68,.86) 32%,
+      rgba(10,49,84,.55) 55%,
+      rgba(10,49,84,.12) 78%,
+      rgba(10,49,84,0) 92%),
     url('hero-bg.webp') center/cover no-repeat;
 }
-.hero__inner{padding:52px 0 64px}
-.hero h1{
-  color:#fff;font-size:2rem;line-height:1.18;max-width:16ch;margin-bottom:16px;
+/* Retícula tipo plano / blueprint que se desvanece hacia la derecha */
+.hero::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background-image:
+    linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px);
+  background-size:54px 54px;
+  -webkit-mask-image:linear-gradient(100deg, #000 0%, rgba(0,0,0,.55) 34%, transparent 62%);
+          mask-image:linear-gradient(100deg, #000 0%, rgba(0,0,0,.55) 34%, transparent 62%);
 }
-.hero__lead{font-size:1.05rem;max-width:46ch;margin-bottom:28px;color:rgba(255,255,255,.92)}
+.hero__inner{position:relative;z-index:1;padding:calc(var(--header-h) + 44px) 0 68px}
+.hero h1{
+  color:#fff;font-size:var(--fs-h1);line-height:1.14;letter-spacing:-.02em;
+  max-width:16ch;margin-bottom:18px;text-wrap:balance;
+}
+.hero__lead{font-size:var(--fs-lead);max-width:46ch;margin-bottom:30px;color:rgba(255,255,255,.92)}
 .hero__ctas{display:flex;flex-direction:column;gap:12px;max-width:340px}
+/* Entrada escalonada del contenido del hero */
+.hero__inner > *{animation:heroIn .7s cubic-bezier(.22,1,.36,1) both}
+.hero__inner > *:nth-child(2){animation-delay:.08s}
+.hero__inner > *:nth-child(3){animation-delay:.16s}
+@keyframes heroIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
 
 /* ============================================================
    6. QUIÉNES SOMOS
    ============================================================ */
-.about__grid{display:grid;gap:28px}
+.about__grid{display:grid;gap:var(--sp-6)}
 .about__media img{
   border-radius:var(--radio);box-shadow:var(--sombra);
   width:100%;aspect-ratio:4/3;object-fit:cover;
+  border:1px solid var(--borde-suave);
 }
-.about__title{font-size:1.5rem;margin-bottom:14px}
-.about__body p{color:var(--texto-suave);margin-bottom:14px}
-.features{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:22px}
-.feature{display:flex;gap:12px;align-items:flex-start}
+.about__title{font-size:var(--fs-h2);margin-bottom:var(--sp-4)}
+.about__body p{color:var(--texto-suave);margin-bottom:var(--sp-4)}
+.features{display:grid;grid-template-columns:1fr;gap:var(--sp-4);margin-top:var(--sp-5)}
+.feature{display:flex;gap:var(--sp-3);align-items:flex-start}
 .feature__icon{
-  flex:0 0 40px;width:40px;height:40px;border-radius:10px;
-  background:rgba(245,166,35,.14);color:var(--acento-600);
+  flex:0 0 48px;width:48px;height:48px;border-radius:12px;
+  background:rgba(245,166,35,.12);color:var(--titulo);
   display:flex;align-items:center;justify-content:center;
 }
-.feature__icon svg{width:22px;height:22px}
-.feature__txt strong{display:block;font-family:var(--f-titulo);font-size:.92rem;color:var(--azul);margin-bottom:2px}
-.feature__txt span{font-size:.82rem;color:var(--texto-suave)}
+.feature__icon svg{width:24px;height:24px}
+.feature__txt strong{display:block;font-family:var(--f-titulo);font-weight:700;font-size:.95rem;color:var(--titulo);margin-bottom:2px}
+.feature__txt span{font-size:.85rem;color:var(--texto-suave)}
 
 /* ============================================================
    7. SERVICIOS — grid de 6 tarjetas
    ============================================================ */
-.services__grid{display:grid;gap:18px}
+.services__grid{display:grid;gap:var(--sp-5);align-items:stretch}
 .service-card{
-  background:#fff;border:1px solid var(--gris-borde);border-radius:var(--radio);
-  padding:24px 22px;
+  position:relative;overflow:hidden;
+  display:flex;flex-direction:column;height:100%;
+  background:var(--surface);
+  border:1px solid var(--borde-suave);          /* borde casi transparente */
+  border-radius:var(--radio);
+  padding:var(--sp-5);                           /* card más plana verticalmente */
+  box-shadow:var(--sombra);                      /* sombra suave en vez de borde gris */
   transition:transform var(--transicion),box-shadow var(--transicion),border-color var(--transicion);
 }
-.service-card:hover{transform:translateY(-4px);box-shadow:var(--sombra-hover);border-color:transparent}
-.service-card__icon{
-  width:52px;height:52px;border-radius:12px;margin-bottom:16px;
-  background:var(--azul);color:#fff;
-  display:flex;align-items:center;justify-content:center;
+.service-card:hover{
+  transform:translateY(-4px);
+  box-shadow:var(--sombra-hover);
+  border-color:rgba(245,166,35,.55);            /* borde naranja al hacer hover */
 }
-.service-card__icon svg{width:26px;height:26px}
-.service-card h3{font-size:1.1rem;margin-bottom:8px}
-.service-card p{font-size:.9rem;color:var(--texto-suave);margin-bottom:14px}
+.service-card > *{position:relative;z-index:1}
+
+/* ---- Media: foto en la franja superior (sangra hasta los bordes) ---- */
+.service-card__media{
+  position:relative;
+  margin:calc(var(--sp-5) * -1) calc(var(--sp-5) * -1) var(--sp-4);
+  aspect-ratio:2 / 1;                            /* franja baja: aplana la card */
+  overflow:hidden;
+  background:var(--surface-2);
+}
+.service-card__media img{
+  width:100%;height:100%;object-fit:cover;display:block;
+  transition:transform .45s cubic-bezier(.22,1,.36,1);
+}
+.service-card:hover .service-card__media img{transform:scale(1.06)}
+/* Viñeta en la esquina superior derecha: el número se lee sobre foto clara u oscura */
+.service-card__media::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(130px 100px at calc(100% - 6px) -6px, rgba(7,34,53,.6), transparent 72%),
+    linear-gradient(180deg, rgba(7,34,53,.22) 0%, rgba(7,34,53,0) 38%);
+}
+
+/* Número decorativo: blanco, sobre la esquina superior de la foto */
+.service-card__num{
+  position:absolute;top:10px;right:16px;z-index:2;
+  font-family:var(--f-titulo);font-weight:800;font-size:2.2rem;line-height:1;
+  color:#fff;opacity:.96;pointer-events:none;user-select:none;
+  text-shadow:0 2px 10px rgba(7,34,53,.6);
+}
+
+.service-card h3{font-size:var(--fs-h3);margin-bottom:var(--sp-2)}
+.service-card p{font-size:.92rem;color:var(--texto-suave);margin-bottom:var(--sp-3)}
+
+/* Sub-ítems que desglosan la descripción del servicio */
+.service-card__points{display:grid;gap:6px;margin-bottom:var(--sp-3)}
+.service-card__points li{
+  position:relative;padding-left:22px;
+  font-size:.83rem;line-height:1.45;color:var(--texto-suave);
+}
+.service-card__points li::before{
+  content:"";position:absolute;left:0;top:.32em;width:13px;height:13px;
+  background:no-repeat center/contain;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23d98d0c' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E");
+}
+
+/* El enlace se ancla al fondo: iguala la altura visual de las 6 cards */
 .service-card__link{
+  margin-top:auto;
   display:inline-flex;align-items:center;gap:6px;min-height:44px;
   font-family:var(--f-titulo);font-weight:600;font-size:.88rem;color:var(--acento-600);
 }
-.service-card__link svg{width:16px;height:16px;transition:transform var(--transicion)}
+.service-card__link svg{width:16px;height:16px;transition:transform .22s ease}
+.service-card:hover .service-card__link svg,
 .service-card__link:hover svg{transform:translateX(4px)}
 
 /* ============================================================
    8. POR QUÉ ELEGIRNOS
    ============================================================ */
-.why__grid{display:grid;gap:16px}
+.why__grid{display:grid;gap:var(--sp-5)}
 .why-card{
-  background:#fff;border-radius:var(--radio);padding:24px 22px;
-  border:1px solid var(--gris-borde);
-  transition:transform var(--transicion),box-shadow var(--transicion);
+  background:var(--surface);border-radius:var(--radio);padding:var(--sp-5);
+  border:1px solid var(--borde);
+  transition:transform var(--transicion),box-shadow var(--transicion),border-color var(--transicion),background var(--transicion);
 }
-.why-card:hover{transform:translateY(-4px);box-shadow:var(--sombra-hover)}
+.why-card:hover{transform:translateY(-4px);box-shadow:var(--sombra-hover);border-color:rgba(245,166,35,.55)}
 .why-card__icon{
-  width:46px;height:46px;border-radius:12px;margin-bottom:14px;
-  background:rgba(10,49,84,.08);color:var(--azul);
+  width:48px;height:48px;border-radius:12px;margin-bottom:var(--sp-4);
+  background:rgba(245,166,35,.12);
+  color:var(--titulo);
   display:flex;align-items:center;justify-content:center;
 }
 .why-card__icon svg{width:24px;height:24px}
-.why-card h3{font-size:1.02rem;margin-bottom:6px}
-.why-card p{font-size:.88rem;color:var(--texto-suave)}
+.why-card h3{font-size:var(--fs-h4);margin-bottom:var(--sp-1)}
+.why-card p{font-size:.9rem;color:var(--texto-suave)}
+
+/* ---- Banda oscura de contraste: da ritmo vertical a la página ---- */
+.section--dark{
+  position:relative;overflow:hidden;
+  background:var(--azul-900);
+  color:rgba(255,255,255,.8);
+}
+.section--dark::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background-image:
+    linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px);
+  background-size:46px 46px;
+  -webkit-mask-image:radial-gradient(ellipse 90% 60% at 50% 0%, #000, transparent 78%);
+          mask-image:radial-gradient(ellipse 90% 60% at 50% 0%, #000, transparent 78%);
+}
+.section--dark .container{position:relative;z-index:1}
+.section--dark .section__title{color:#fff}
+.section--dark .section__eyebrow{color:var(--acento)}
+.section--dark .why-card{
+  background:rgba(255,255,255,.045);
+  border-color:rgba(255,255,255,.1);
+}
+.section--dark .why-card:hover{background:rgba(255,255,255,.075);box-shadow:0 22px 48px rgba(0,0,0,.35)}
+.section--dark .why-card h3{color:#fff}
+.section--dark .why-card p{color:rgba(255,255,255,.6)}
+.section--dark .why-card__icon{
+  background:rgba(245,166,35,.16);color:var(--acento);
+}
 
 /* ============================================================
    9. GALERÍA DE PROYECTOS
    ============================================================ */
-.gallery__grid{display:grid;gap:14px}
+.gallery__grid{display:grid;gap:var(--sp-4)}
 .project{
   position:relative;overflow:hidden;border-radius:var(--radio);
   box-shadow:var(--sombra);background:var(--azul);
+  transition:transform var(--transicion),box-shadow var(--transicion);
 }
+.project:hover{transform:translateY(-4px);box-shadow:var(--sombra-hover)}
 .project img{
   width:100%;aspect-ratio:4/3;object-fit:cover;
   transition:transform .4s ease;
@@ -378,38 +631,38 @@ body.no-scroll{overflow:hidden}
 /* ============================================================
    10. FORMULARIO DE COTIZACIÓN
    ============================================================ */
-.quote__grid{display:grid;gap:28px}
-.quote__aside h2{font-size:1.5rem;margin-bottom:12px}
-.quote__aside p{color:var(--texto-suave);margin-bottom:18px}
-.quote__contact li{display:flex;gap:12px;align-items:center;margin-bottom:12px;font-size:.95rem}
+.quote__grid{display:grid;gap:var(--sp-6)}
+.quote__aside h2{font-size:var(--fs-h2);margin-bottom:var(--sp-3)}
+.quote__aside p{color:var(--texto-suave);margin-bottom:var(--sp-5)}
+.quote__contact li{display:flex;gap:var(--sp-3);align-items:center;margin-bottom:var(--sp-3);font-size:.95rem}
 .quote__contact svg{width:20px;height:20px;color:var(--acento-600);flex:0 0 20px}
 
 .form{
-  background:#fff;border:1px solid var(--gris-borde);border-radius:var(--radio);
-  padding:24px 20px;box-shadow:var(--sombra);
+  background:var(--surface);border:1px solid var(--borde);border-radius:var(--radio);
+  padding:var(--sp-5);box-shadow:var(--sombra);
 }
-.field{margin-bottom:16px}
+.field{margin-bottom:var(--sp-4)}
 .field label{
   display:block;font-family:var(--f-titulo);font-weight:500;
-  font-size:.85rem;color:var(--azul);margin-bottom:6px;
+  font-size:.85rem;color:var(--titulo);margin-bottom:6px;
 }
-.field .req{color:#c0392b}
+.field .req{color:var(--danger)}
 .field input,.field select,.field textarea{
   width:100%;padding:12px 14px;min-height:48px;
   font-family:inherit;font-size:.95rem;color:var(--texto);
-  background:var(--gris-claro);
-  border:1.5px solid var(--gris-borde);border-radius:var(--radio-sm);
+  background:var(--surface-2);
+  border:1.5px solid var(--borde);border-radius:var(--radio-sm);
   transition:border-color var(--transicion),background var(--transicion);
 }
 .field textarea{min-height:120px;resize:vertical}
 .field input:focus,.field select:focus,.field textarea:focus{
-  background:#fff;border-color:var(--azul);outline:none;
+  background:var(--surface);border-color:var(--acento);outline:none;
 }
 /* Estado de error (HTML5 :invalid tras interacción) */
 .field input:user-invalid,.field select:user-invalid,.field textarea:user-invalid{
-  border-color:#c0392b;background:#fff5f4;
+  border-color:var(--danger);background:var(--danger-bg);
 }
-.field__error{display:none;color:#c0392b;font-size:.78rem;margin-top:5px}
+.field__error{display:none;color:var(--danger);font-size:.78rem;margin-top:5px}
 .field input:user-invalid ~ .field__error,
 .field select:user-invalid ~ .field__error,
 .field textarea:user-invalid ~ .field__error{display:block}
@@ -418,36 +671,41 @@ body.no-scroll{overflow:hidden}
   display:none;padding:12px 14px;border-radius:var(--radio-sm);
   font-size:.9rem;margin-bottom:16px;
 }
-.form__status.is-ok{display:block;background:#e7f6ec;color:#1e7a3d;border:1px solid #b7e2c4}
-.form__status.is-error{display:block;background:#fdeceb;color:#b0281c;border:1px solid #f3c6c1}
+.form__status.is-ok{display:block;background:var(--ok-bg);color:var(--ok);border:1px solid var(--ok-bd)}
+.form__status.is-error{display:block;background:var(--err-bg);color:var(--err);border:1px solid var(--err-bd)}
 
 .form__divider{
   display:flex;align-items:center;gap:12px;
   margin:18px 0 14px;color:var(--texto-suave);font-size:.82rem;
 }
 .form__divider::before,.form__divider::after{
-  content:"";flex:1;height:1px;background:var(--gris-borde);
+  content:"";flex:1;height:1px;background:var(--borde);
 }
 
 /* ============================================================
    10b. UBICACIÓN
    ============================================================ */
-.location__grid{display:grid;gap:22px}
+.location__grid{display:grid;gap:var(--sp-5)}
 .location__info .quote__contact li{font-size:.95rem}
 .location__map{
   border-radius:var(--radio);overflow:hidden;box-shadow:var(--sombra);
-  border:1px solid var(--gris-borde);
+  border:1px solid var(--borde);
 }
 .location__map iframe{
   display:block;width:100%;height:300px;border:0;
 }
+/* En modo oscuro se atenúa el mapa (que es claro) para integrarlo */
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]) .location__map iframe{filter:invert(1) hue-rotate(180deg) brightness(.92) contrast(.9)}
+}
+:root[data-theme="dark"] .location__map iframe{filter:invert(1) hue-rotate(180deg) brightness(.92) contrast(.9)}
 
 /* ============================================================
    11. FOOTER
    ============================================================ */
-.footer{background:var(--azul-900);color:rgba(255,255,255,.82);padding:44px 0 22px}
-.footer__grid{display:grid;gap:26px}
-.footer h3{color:#fff;font-size:1rem;margin-bottom:12px}
+.footer{background:var(--azul-900);color:rgba(255,255,255,.82);padding:var(--sp-8) 0 var(--sp-5)}
+.footer__grid{display:grid;gap:var(--sp-6)}
+.footer h3{color:#fff;font-size:1rem;font-weight:700;margin-bottom:var(--sp-3)}
 .footer a:hover{color:var(--acento)}
 .footer__contact li{margin-bottom:8px;font-size:.9rem;display:flex;gap:9px;align-items:center}
 .footer__contact svg{width:17px;height:17px;color:var(--acento);flex:0 0 17px}
@@ -483,10 +741,17 @@ body.no-scroll{overflow:hidden}
 /* ============================================================
    13. MICRO-INTERACCIONES: fade-in al hacer scroll
    ============================================================ */
-.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.22,1,.36,1),transform .6s cubic-bezier(.22,1,.36,1)}
 .reveal.is-visible{opacity:1;transform:none}
+/* Cascada al revelar grillas de tarjetas */
+:where(.services__grid,.why__grid,.gallery__grid) > .reveal:nth-child(2){transition-delay:.07s}
+:where(.services__grid,.why__grid,.gallery__grid) > .reveal:nth-child(3){transition-delay:.14s}
+:where(.services__grid,.why__grid,.gallery__grid) > .reveal:nth-child(4){transition-delay:.21s}
+:where(.services__grid,.why__grid,.gallery__grid) > .reveal:nth-child(5){transition-delay:.28s}
+:where(.services__grid,.why__grid,.gallery__grid) > .reveal:nth-child(6){transition-delay:.35s}
 @media (prefers-reduced-motion:reduce){
-  .reveal{opacity:1;transform:none;transition:none}
+  .reveal{opacity:1;transform:none;transition:none;transition-delay:0s!important}
+  .hero__inner > *{animation:none!important;opacity:1!important;transform:none!important}
   html{scroll-behavior:auto}
   *{transition:none!important;animation:none!important}
 }
@@ -495,21 +760,32 @@ body.no-scroll{overflow:hidden}
    14. MEDIA QUERIES — TABLET (>=768px)
    ============================================================ */
 @media (min-width:768px){
-  .section{padding:72px 0}
-  .section__title{font-size:2rem}
+  .section__title{letter-spacing:-.02em}
 
-  .hero h1{font-size:2.7rem}
-  .hero__lead{font-size:1.15rem}
   .hero__ctas{flex-direction:row;max-width:none}
+  /* En pantallas anchas el contenido ocupa la mitad izquierda:
+     el overlay se concentra a la izquierda y deja ~40% de la foto
+     a color natural en la derecha. */
+  .hero{
+    background:
+      linear-gradient(95deg,
+        rgba(7,34,53,.92) 0%,
+        rgba(9,42,68,.80) 28%,
+        rgba(10,49,84,.40) 48%,
+        rgba(10,49,84,.06) 64%,
+        rgba(10,49,84,0) 74%),
+      url('hero-bg.webp') center/cover no-repeat;
+  }
 
-  .about__grid{grid-template-columns:1fr 1fr;align-items:center}
+  .about__grid{grid-template-columns:1fr 1fr;align-items:center;gap:var(--sp-8)}
+  .features{grid-template-columns:1fr 1fr}
   .services__grid{grid-template-columns:1fr 1fr}
   .why__grid{grid-template-columns:1fr 1fr}
   .gallery__grid{grid-template-columns:1fr 1fr}
 
-  .quote__grid{grid-template-columns:.9fr 1.1fr;align-items:start}
-  .form{padding:28px 26px}
-  .form__row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .quote__grid{grid-template-columns:.9fr 1.1fr;align-items:start;gap:var(--sp-8)}
+  .form{padding:var(--sp-6)}
+  .form__row{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-4)}
 
   .location__grid{grid-template-columns:1fr 1.6fr;align-items:start}
   .location__map iframe{height:360px}
@@ -528,8 +804,6 @@ body.no-scroll{overflow:hidden}
   .nav{display:block}
   .hamburger{display:none}
   .brand__name{font-size:1.05rem}
-
-  .hero h1{font-size:3.1rem}
 
   .services__grid{grid-template-columns:repeat(3,1fr)}
   .why__grid{grid-template-columns:repeat(4,1fr)}
@@ -582,10 +856,19 @@ body.no-scroll{overflow:hidden}
       </ul>
     </nav>
 
-    <!-- Botón hamburguesa (mobile) -->
-    <button class="hamburger" id="hamburger" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="mobile-menu">
-      <span></span><span></span><span></span>
-    </button>
+    <!-- Acciones: cambio de tema + menú móvil -->
+    <div class="header__actions">
+      <button class="theme-toggle" id="theme-toggle" type="button"
+              aria-label="Cambiar entre tema claro y oscuro" aria-pressed="false">
+        <svg class="t-sun" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+        <svg class="t-moon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9z"/></svg>
+      </button>
+
+      <!-- Botón hamburguesa (mobile) -->
+      <button class="hamburger" id="hamburger" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </div>
 </header>
 
@@ -715,11 +998,17 @@ body.no-scroll{overflow:hidden}
 
         <!-- 1. Asesorías técnicas -->
         <article class="service-card reveal">
-          <span class="service-card__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 9h8"/><path d="M8 13h5"/></svg>
-          </span>
+          <div class="service-card__media">
+            <img src="asesoriastecnicas.webp" alt="Profesional en obra revisando una estructura de hormigón con instrumento topográfico" loading="lazy" decoding="async" width="900" height="675">
+          </div>
+          <span class="service-card__num" aria-hidden="true">01</span>
           <h3>Asesorías técnicas</h3>
           <p>Apoyo especializado a mandantes y unidades técnicas en la toma de decisiones de ingeniería durante el ciclo del proyecto.</p>
+          <ul class="service-card__points">
+            <li>Acompañamiento a la unidad técnica del mandante</li>
+            <li>Evaluación de alternativas y criterios de diseño</li>
+            <li>Apoyo en etapas de licitación y ejecución</li>
+          </ul>
           <a class="service-card__link" href="#cotizacion" data-service="Asesorías técnicas">
             Consultar
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
@@ -728,11 +1017,17 @@ body.no-scroll{overflow:hidden}
 
         <!-- 2. Revisión de proyectos -->
         <article class="service-card reveal">
-          <span class="service-card__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M14 3H7a2 2 0 0 0-2 2v10"/><path d="M19 8v3"/><circle cx="11.5" cy="17.5" r="3.5"/><path d="M14 20l2.5 2.5"/></svg>
-          </span>
+          <div class="service-card__media">
+            <img src="Revisionproyectos.webp" alt="Dos ingenieros con planos revisando el trazado de un camino en construcción" loading="lazy" decoding="async" width="900" height="675">
+          </div>
+          <span class="service-card__num" aria-hidden="true">02</span>
           <h3>Revisión de proyectos</h3>
           <p>Revisión independiente de proyectos de arquitectura y especialidades: consistencia, memorias, planos y cumplimiento normativo.</p>
+          <ul class="service-card__points">
+            <li>Coordinación entre arquitectura y especialidades</li>
+            <li>Verificación de memorias de cálculo y planos</li>
+            <li>Chequeo de cumplimiento normativo</li>
+          </ul>
           <a class="service-card__link" href="#cotizacion" data-service="Revisión de proyectos">
             Consultar
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
@@ -741,11 +1036,17 @@ body.no-scroll{overflow:hidden}
 
         <!-- 3. Estudios de impacto vial -->
         <article class="service-card reveal">
-          <span class="service-card__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19h16"/><path d="M9 19V5l3-2 3 2v14"/><path d="M9 9h6"/><path d="M9 13h6"/></svg>
-          </span>
+          <div class="service-card__media">
+            <img src="estudiosimpactovial.webp" alt="Trabajos viales con barreras de seguridad naranjas en una calle urbana con tránsito" loading="lazy" decoding="async" width="900" height="675">
+          </div>
+          <span class="service-card__num" aria-hidden="true">03</span>
           <h3>Estudios de impacto vial</h3>
           <p>Evaluación de flujos, accesos y mitigaciones viales para permisos y proyectos que generan nueva demanda de transporte.</p>
+          <ul class="service-card__points">
+            <li>Análisis de flujos y capacidad vial</li>
+            <li>Diseño de accesos y medidas de mitigación</li>
+            <li>Informe para tramitación ante la autoridad</li>
+          </ul>
           <a class="service-card__link" href="#cotizacion" data-service="Estudios de impacto vial">
             Consultar
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
@@ -754,11 +1055,17 @@ body.no-scroll{overflow:hidden}
 
         <!-- 4. Memorias de cálculo estructural -->
         <article class="service-card reveal">
-          <span class="service-card__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M8 6h8"/><path d="M8 10h2"/><path d="M14 10h2"/><path d="M8 14h2"/><path d="M14 14h2"/><path d="M8 18h8"/></svg>
-          </span>
+          <div class="service-card__media">
+            <img src="memoriasdecalculo.webp" alt="Modelo estructural tridimensional de una edificación, usado en la memoria de cálculo" loading="lazy" decoding="async" width="1000" height="658">
+          </div>
+          <span class="service-card__num" aria-hidden="true">04</span>
           <h3>Memorias de cálculo estructural</h3>
           <p>Diseño y cálculo de estructuras de hormigón armado, acero y albañilería, con memoria y planos para permisos y construcción.</p>
+          <ul class="service-card__points">
+            <li>Hormigón armado, acero y albañilería</li>
+            <li>Memoria de cálculo firmada</li>
+            <li>Planos estructurales para permisos y obra</li>
+          </ul>
           <a class="service-card__link" href="#cotizacion" data-service="Memorias de cálculo estructural">
             Consultar
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
@@ -767,11 +1074,17 @@ body.no-scroll{overflow:hidden}
 
         <!-- 5. Accesos a predios -->
         <article class="service-card reveal">
-          <span class="service-card__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22L9 2h6l5 20"/><path d="M12 6v2"/><path d="M12 12v2"/><path d="M12 18v2"/></svg>
-          </span>
+          <div class="service-card__media">
+            <img src="accesopredios.webp" alt="Acceso vehicular con alcantarilla de cajón en construcción hacia un predio rural" loading="lazy" decoding="async" width="900" height="675">
+          </div>
+          <span class="service-card__num" aria-hidden="true">05</span>
           <h3>Accesos a predios</h3>
           <p>Diseño y construcción de accesos vehiculares a predios agrícolas, industriales y habitacionales, con carpeta técnica para la autoridad vial.</p>
+          <ul class="service-card__points">
+            <li>Diseño geométrico y de pavimento del acceso</li>
+            <li>Carpeta técnica para la autoridad vial</li>
+            <li>Ejecución de la obra en terreno</li>
+          </ul>
           <a class="service-card__link" href="#cotizacion" data-service="Construcción de accesos a predios">
             Consultar
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
@@ -780,11 +1093,17 @@ body.no-scroll{overflow:hidden}
 
         <!-- 6. Construcción y obras civiles -->
         <article class="service-card reveal">
-          <span class="service-card__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-6h6v6"/><path d="M9 10h.01"/><path d="M15 10h.01"/></svg>
-          </span>
+          <div class="service-card__media">
+            <img src="construccionobrasciviles.webp" alt="Maquinaria de movimiento de tierras trabajando en un camino al atardecer" loading="lazy" decoding="async" width="1000" height="567">
+          </div>
+          <span class="service-card__num" aria-hidden="true">06</span>
           <h3>Construcción y obras civiles</h3>
           <p>Ejecución de obras civiles: fundaciones, pavimentos, obras de drenaje, muros y mejoramientos, con control de calidad y avance.</p>
+          <ul class="service-card__points">
+            <li>Fundaciones, pavimentos y obras de drenaje</li>
+            <li>Muros y mejoramientos</li>
+            <li>Control de calidad y avance de obra</li>
+          </ul>
           <a class="service-card__link" href="#cotizacion" data-service="Construcción y obras civiles">
             Consultar
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
@@ -799,7 +1118,7 @@ body.no-scroll{overflow:hidden}
   <!-- ============================================================
        4. POR QUÉ ELEGIRNOS
        ============================================================ -->
-  <section class="section" id="por-que-elegirnos">
+  <section class="section section--dark" id="por-que-elegirnos">
     <div class="container">
       <div class="section__head reveal">
         <p class="section__eyebrow">Por qué elegirnos</p>
@@ -847,7 +1166,7 @@ body.no-scroll{overflow:hidden}
        5. GALERÍA DE PROYECTOS
        Placeholders: proyecto-1.webp … proyecto-6.webp
        ============================================================ -->
-  <section class="section section--alt" id="proyectos">
+  <section class="section" id="proyectos">
     <div class="container">
       <div class="section__head reveal">
         <p class="section__eyebrow">Proyectos</p>
@@ -888,7 +1207,7 @@ body.no-scroll{overflow:hidden}
   <!-- ============================================================
        6. FORMULARIO DE COTIZACIÓN
        ============================================================ -->
-  <section class="section" id="cotizacion">
+  <section class="section section--alt" id="cotizacion">
     <div class="container">
       <div class="quote__grid">
 
@@ -1010,7 +1329,7 @@ body.no-scroll{overflow:hidden}
        Al confirmar la dirección definitiva, actualizar aquí, el <iframe>
        de más abajo, el footer y el bloque "address" del JSON-LD (<head>).
        ============================================================ -->
-  <section class="section section--alt" id="ubicacion">
+  <section class="section" id="ubicacion">
     <div class="container">
       <div class="section__head reveal">
         <p class="section__eyebrow">Ubicación</p>
@@ -1216,6 +1535,53 @@ body.no-scroll{overflow:hidden}
      D. AÑO DINÁMICO EN EL FOOTER
      -------------------------------------------------------- */
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* --------------------------------------------------------
+     D2. CAMBIO DE TEMA CLARO / OSCURO
+     - Por defecto respeta la preferencia del sistema.
+     - Si el usuario elige manualmente, se guarda en localStorage
+       (aplicado antes del render por el script del <head>).
+     -------------------------------------------------------- */
+  var themeToggle = document.getElementById('theme-toggle');
+  var themeMeta   = document.querySelector('meta[name="theme-color"]:not([media])')
+                 || document.querySelector('meta[name="theme-color"]');
+  var darkMq      = window.matchMedia('(prefers-color-scheme: dark)');
+
+  function effectiveTheme(){
+    var attr = document.documentElement.getAttribute('data-theme');
+    if (attr === 'dark' || attr === 'light') return attr;
+    return darkMq.matches ? 'dark' : 'light';
+  }
+  function syncTheme(){
+    var t = effectiveTheme();
+    if (themeMeta) themeMeta.setAttribute('content', t === 'dark' ? '#0c1620' : '#0A3154');
+    if (themeToggle){
+      themeToggle.setAttribute('aria-pressed', String(t === 'dark'));
+      themeToggle.setAttribute('title', t === 'dark' ? 'Cambiar a tema claro' : 'Cambiar a tema oscuro');
+    }
+  }
+  syncTheme();
+
+  if (themeToggle){
+    themeToggle.addEventListener('click', function(){
+      var next = effectiveTheme() === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      try { localStorage.setItem('mb-theme', next); } catch (e) {}
+      syncTheme();
+    });
+  }
+  // Si el usuario no ha elegido manualmente, seguir los cambios del sistema
+  darkMq.addEventListener('change', syncTheme);
+
+  /* --------------------------------------------------------
+     D3. SOMBRA DEL HEADER AL HACER SCROLL
+     -------------------------------------------------------- */
+  var headerEl = document.querySelector('.header');
+  function onScrollHeader(){
+    if (headerEl) headerEl.classList.toggle('is-scrolled', window.scrollY > 24);
+  }
+  onScrollHeader();
+  window.addEventListener('scroll', onScrollHeader, { passive: true });
 
   /* --------------------------------------------------------
      E. WHATSAPP DESDE EL FORMULARIO (mensaje precompletado)

@@ -855,16 +855,9 @@ body.no-scroll{overflow:hidden}
   }
   .hero__ctas .btn svg{flex:0 0 auto}
 
-  /* ---- 2. QUIÉNES SOMOS: diferenciadores alternados ---- */
-  /* 1º y 3º a la izquierda (por defecto); 2º y 4º espejados a la derecha. */
-  .features .feature:nth-child(even){
-    flex-direction:row-reverse;
-    text-align:right;
-  }
-  .features .feature:nth-child(even) .feature__txt{flex:1}
-
-  /* Línea divisoria entre ítems para leer el zigzag como una lista.
-     Se anula el gap del grid y cada ítem lleva su propio padding + borde. */
+  /* ---- 2. QUIÉNES SOMOS: diferenciadores como lista dividida ---- */
+  /* Todos con ícono y texto a la izquierda (alineación por defecto).
+     Se anula el gap del grid y cada ítem lleva su padding + línea divisoria. */
   .features{gap:0}
   .features .feature{
     padding:18px 0;

@@ -863,6 +863,16 @@ body.no-scroll{overflow:hidden}
   }
   .features .feature:nth-child(even) .feature__txt{flex:1}
 
+  /* Línea divisoria entre ítems para leer el zigzag como una lista.
+     Se anula el gap del grid y cada ítem lleva su propio padding + borde. */
+  .features{gap:0}
+  .features .feature{
+    padding:18px 0;
+    border-bottom:1px solid var(--borde);
+  }
+  .features .feature:first-child{padding-top:0}
+  .features .feature:last-child{padding-bottom:0;border-bottom:none}
+
   /* ---- 3. POR QUÉ ELEGIRNOS: 2 columnas compactas ---- */
   .why__grid{
     grid-template-columns:repeat(2,1fr);

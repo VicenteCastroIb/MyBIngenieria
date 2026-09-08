@@ -829,6 +829,52 @@ body.no-scroll{overflow:hidden}
 @media (min-width:1200px){
   .section__head{margin-bottom:48px}
 }
+
+/* ============================================================
+   16. AJUSTES MOBILE (<=600px)
+   Correcciones puntuales de layout. No afecta tablet ni desktop
+   (los bloques min-width:768/1024 nunca aplican bajo 768px).
+   ============================================================ */
+@media (max-width:600px){
+
+  /* ---- 1. HERO ---- */
+  /* El shorthand `padding:… 0 …` de .hero__inner anulaba el padding
+     horizontal de .container; se restituye solo en mobile. */
+  .hero__inner{padding-left:22px;padding-right:22px}
+
+  /* Los dos CTA siempre lado a lado, mitad y mitad; nunca apilados. */
+  .hero__ctas{
+    flex-direction:row;flex-wrap:nowrap;
+    gap:10px;width:100%;max-width:none;
+  }
+  .hero__ctas .btn{
+    flex:1 1 0;min-width:0;
+    padding:12px 10px;
+    font-size:.8rem;line-height:1.15;
+    gap:6px;white-space:normal;text-align:center;
+  }
+  .hero__ctas .btn svg{flex:0 0 auto}
+
+  /* ---- 2. QUIÉNES SOMOS: diferenciadores alternados ---- */
+  /* 1º y 3º a la izquierda (por defecto); 2º y 4º espejados a la derecha. */
+  .features .feature:nth-child(even){
+    flex-direction:row-reverse;
+    text-align:right;
+  }
+  .features .feature:nth-child(even) .feature__txt{flex:1}
+
+  /* ---- 3. POR QUÉ ELEGIRNOS: 2 columnas compactas ---- */
+  .why__grid{
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+    align-items:stretch;
+  }
+  .why-card{padding:16px}
+  .why-card__icon{width:40px;height:40px;border-radius:10px;margin-bottom:10px}
+  .why-card__icon svg{width:20px;height:20px}
+  .why-card h3{font-size:.95rem;margin-bottom:4px}
+  .why-card p{font-size:.8rem;line-height:1.45}
+}
 </style>
 </head>
 

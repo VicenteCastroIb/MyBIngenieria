@@ -2,4 +2,5 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://www.mybingenieria.com/sitemap.xml
+# TODO: volver a https://www.mybingenieria.com/sitemap.xml cuando el dominio esté conectado
+Sitemap: https://my-b-ingenieria.vercel.app/sitemap.xml

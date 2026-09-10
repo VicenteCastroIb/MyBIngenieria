@@ -8,10 +8,15 @@
      SEO PRINCIPAL
      ============================================================ -->
 <title>M&amp;B Ingeniería y Construcción SpA | Consultoría y Obras Civiles en Chile</title>
-<meta name="description" content="M&amp;B Ingeniería y Construcción SpA: asesorías técnicas, revisión de proyectos, estudios de impacto vial, memorias de cálculo estructural, accesos a predios y obras civiles para clientes públicos y privados en Chile. Solicita tu cotización.">
-<meta name="robots" content="index, follow">
+<meta name="description" content="Ingeniería, consultoría técnica y construcción de obras civiles en Chile: asesorías técnicas, estudios de impacto vial, memorias de cálculo estructural y accesos a predios. Solicita tu cotización.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="author" content="M&amp;B Ingeniería y Construcción SpA">
+<meta name="geo.region" content="CL">
+<meta name="geo.placename" content="Chile">
 <!-- TODO: volver a www.mybingenieria.com cuando el dominio esté conectado en Vercel -->
 <link rel="canonical" href="https://my-b-ingenieria.vercel.app/">
+<link rel="alternate" hreflang="es-cl" href="https://my-b-ingenieria.vercel.app/">
+<link rel="alternate" hreflang="x-default" href="https://my-b-ingenieria.vercel.app/">
 <meta name="theme-color" content="#0A3154">
 <meta name="theme-color" content="#0A3154" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0c1620" media="(prefers-color-scheme: dark)">
@@ -20,21 +25,28 @@
 
 <!-- ============================================================
      OPEN GRAPH / TWITTER CARD
-     Reemplaza og-image.jpg por una imagen real 1200x630 px.
+     og-cover.jpg: 1200x630. Al cambiar la imagen se usa un nombre
+     nuevo para forzar que WhatsApp/Facebook refresquen su caché.
      ============================================================ -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="M&amp;B Ingeniería y Construcción SpA">
-<meta property="og:title" content="M&amp;B Ingeniería y Construcción SpA | Consultoría y Obras Civiles en Chile">
-<meta property="og:description" content="Soluciones integrales de ingeniería, consultoría técnica y construcción de obras civiles para clientes públicos y privados en Chile.">
+<meta property="og:title" content="M&amp;B Ingeniería y Construcción SpA | Ingeniería y Obras Civiles en Chile">
+<meta property="og:description" content="Asesorías técnicas, estudios de impacto vial, memorias de cálculo estructural, accesos a predios y obras civiles para clientes públicos y privados en Chile.">
 <!-- TODO: volver a www.mybingenieria.com cuando el dominio esté conectado en Vercel -->
 <meta property="og:url" content="https://my-b-ingenieria.vercel.app/">
-<meta property="og:image" content="https://my-b-ingenieria.vercel.app/og-image.jpg">
+<meta property="og:image" content="https://my-b-ingenieria.vercel.app/og-cover.jpg">
+<meta property="og:image:secure_url" content="https://my-b-ingenieria.vercel.app/og-cover.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="M&amp;B Ingeniería y Construcción SpA — Ingeniería y Construcción para Proyectos Exitosos">
 <meta property="og:locale" content="es_CL">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="M&amp;B Ingeniería y Construcción SpA">
 <meta name="twitter:description" content="Ingeniería, consultoría técnica y construcción de obras civiles en Chile. Solicita tu cotización.">
 <!-- TODO: volver a www.mybingenieria.com cuando el dominio esté conectado en Vercel -->
-<meta name="twitter:image" content="https://my-b-ingenieria.vercel.app/og-image.jpg">
+<meta name="twitter:image" content="https://my-b-ingenieria.vercel.app/og-cover.jpg">
+<meta name="twitter:image:alt" content="M&amp;B Ingeniería y Construcción SpA — Ingeniería y Construcción para Proyectos Exitosos">
 
 <!-- ============================================================
      FAVICON (SVG inline como data URI — sin peticiones extra)
@@ -50,7 +62,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
 <!-- Precarga del hero para mejorar LCP -->
-<link rel="preload" as="image" href="Herobg.webp">
+<link rel="preload" as="image" href="Herobg.webp" fetchpriority="high">
 
 <!-- ============================================================
      DATOS ESTRUCTURADOS JSON-LD — GeneralContractor
@@ -60,15 +72,20 @@
 {
   "@context": "https://schema.org",
   "@type": "GeneralContractor",
+  "@id": "https://my-b-ingenieria.vercel.app/#business",
   "name": "M&B Ingeniería y Construcción SpA",
+  "alternateName": "M&B Ingeniería",
   "_comment": "TODO: volver a www.mybingenieria.com cuando el dominio esté conectado en Vercel",
   "url": "https://my-b-ingenieria.vercel.app/",
-  "image": "https://my-b-ingenieria.vercel.app/og-image.jpg",
+  "image": "https://my-b-ingenieria.vercel.app/og-cover.jpg",
   "logo": "https://my-b-ingenieria.vercel.app/logo-myb.png",
+  "slogan": "Ingeniería y Construcción para Proyectos Exitosos",
   "email": ["contacto@mybingenieria.com", "jaimeplaz@mybingenieria.com"],
   "telephone": "+56947780892",
   "priceRange": "$$",
-  "description": "Ingeniería, consultoría técnica y construcción de obras civiles para clientes públicos y privados en Chile.",
+  "currenciesAccepted": "CLP",
+  "knowsLanguage": ["es"],
+  "description": "Ingeniería, consultoría técnica y construcción de obras civiles para clientes públicos y privados en Chile: asesorías técnicas, revisión de proyectos, estudios de impacto vial, memorias de cálculo estructural, accesos a predios y obras civiles.",
   "areaServed": {
     "@type": "Country",
     "name": "Chile"
@@ -84,9 +101,64 @@
   "contactPoint": {
     "@type": "ContactPoint",
     "telephone": "+56947780892",
+    "email": "contacto@mybingenieria.com",
     "contactType": "sales",
     "areaServed": "CL",
     "availableLanguage": ["Spanish"]
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Servicios de ingeniería y construcción",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Asesorías técnicas",
+          "description": "Apoyo especializado a mandantes y unidades técnicas en la toma de decisiones de ingeniería durante el ciclo del proyecto."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Revisión de proyectos",
+          "description": "Revisión independiente de proyectos de arquitectura y especialidades: consistencia, memorias, planos y cumplimiento normativo."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Estudios de impacto vial",
+          "description": "Evaluación de flujos, accesos y mitigaciones viales para permisos y proyectos que generan nueva demanda de transporte."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Memorias de cálculo estructural",
+          "description": "Diseño y cálculo de estructuras de hormigón armado, acero y albañilería, con memoria y planos para permisos y construcción."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Accesos a predios",
+          "description": "Diseño y construcción de accesos vehiculares a predios agrícolas, industriales y habitacionales, con carpeta técnica para la autoridad vial."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Construcción y obras civiles",
+          "description": "Ejecución de obras civiles: fundaciones, pavimentos, obras de drenaje, muros y mejoramientos, con control de calidad y avance."
+        }
+      }
+    ]
   }
 }
 </script>

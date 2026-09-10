@@ -768,6 +768,30 @@ body.no-scroll{overflow:hidden}
     gap:6px;white-space:normal;text-align:center;
   }
   .hero__ctas .btn svg{flex:0 0 auto}
+
+  /* ---- 3. SERVICIOS: 2 columnas compactas ----
+     Tiles limpias: foto + número + título + "Consultar".
+     Se ocultan las viñetas y se acorta la descripción. */
+  .services__grid{grid-template-columns:1fr 1fr;gap:12px}
+  .service-card{padding:14px}
+  .service-card__media{margin:-14px -14px 12px}
+  .service-card__num{font-size:1.6rem;top:6px;right:10px}
+  .service-card h3{font-size:1rem;margin-bottom:6px}
+  .service-card p{
+    font-size:.82rem;margin-bottom:10px;
+    display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden;
+  }
+  .service-card__points{display:none}
+  .service-card__link{font-size:.82rem;min-height:36px;gap:5px}
+
+  /* ---- 4. PROYECTOS: 2 columnas (galería) ---- */
+  .gallery__grid{grid-template-columns:1fr 1fr;gap:10px}
+  .project__label{font-size:.76rem;padding:10px 12px}
+
+  /* ---- 5. FORMULARIO: campos cortos en 2 columnas ---- */
+  .form__row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .field label{font-size:.78rem}
+  .field input,.field select{padding:11px 10px;font-size:.85rem}
 }
 </style>
 </head>

@@ -770,19 +770,25 @@ body.no-scroll{overflow:hidden}
   .hero__ctas .btn svg{flex:0 0 auto}
 
   /* ---- 3. SERVICIOS: 2 columnas compactas ----
-     Tiles limpias: foto + número + título + "Consultar".
-     Se ocultan las viñetas y se acorta la descripción. */
+     Imagen protagonista, tipografía más chica y descripción resumida a
+     2 líneas con botón "Ver más" para desplegar el resto. Sin viñetas. */
   .services__grid{grid-template-columns:1fr 1fr;gap:12px}
-  .service-card{padding:14px}
-  .service-card__media{margin:-14px -14px 12px}
-  .service-card__num{font-size:1.6rem;top:6px;right:10px}
-  .service-card h3{font-size:1rem;margin-bottom:6px}
+  .service-card{padding:11px}
+  .service-card__media{margin:-11px -11px 9px;aspect-ratio:4 / 3}
+  .service-card__num{font-size:1.45rem;top:6px;right:9px}
+  .service-card h3{font-size:.9rem;line-height:1.2;margin-bottom:4px}
   .service-card p{
-    font-size:.82rem;margin-bottom:10px;
-    display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden;
+    font-size:.76rem;line-height:1.4;margin-bottom:6px;
+    display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;
   }
+  .service-card p.is-expanded{-webkit-line-clamp:unset;overflow:visible}
   .service-card__points{display:none}
-  .service-card__link{font-size:.82rem;min-height:36px;gap:5px}
+  .service-card__more{
+    align-self:flex-start;margin:0 0 8px;padding:2px 0;
+    font:600 .74rem/1.2 var(--f-titulo);
+    color:var(--cta);background:none;border:0;text-decoration:underline;cursor:pointer;
+  }
+  .service-card__link{font-size:.78rem;min-height:32px;gap:5px}
 
   /* ---- 4. PROYECTOS: 2 columnas (galería) ---- */
   .gallery__grid{grid-template-columns:1fr 1fr;gap:10px}
@@ -1070,28 +1076,28 @@ body.no-scroll{overflow:hidden}
 
       <div class="gallery__grid">
         <figure class="project reveal">
-          <img src="proyecto-1.webp" alt="Acceso vehicular construido hacia un predio agrícola con carpeta de rodado" loading="lazy" width="600" height="450">
-          <figcaption class="project__label">Acceso a predio agrícola</figcaption>
+          <img src="proyecto-1.webp" alt="Topógrafo con estación total midiendo en el acceso de un camino rural, con conos de seguridad" loading="lazy" width="600" height="450">
+          <figcaption class="project__label">Levantamiento topográfico en acceso vial</figcaption>
         </figure>
         <figure class="project reveal">
-          <img src="proyecto-2.webp" alt="Intersección urbana analizada en un estudio de impacto vial" loading="lazy" width="600" height="450">
-          <figcaption class="project__label">Estudio de impacto vial</figcaption>
+          <img src="proyecto-2.webp" alt="Profesional revisando con un nivel una viga de hormigón armado de un paso vehicular" loading="lazy" width="600" height="450">
+          <figcaption class="project__label">Inspección de estructura de hormigón armado</figcaption>
         </figure>
         <figure class="project reveal">
-          <img src="proyecto-3.webp" alt="Faena de hormigonado de fundaciones en una obra civil urbana" loading="lazy" width="600" height="450">
-          <figcaption class="project__label">Obra civil urbana</figcaption>
+          <img src="proyecto-3.webp" alt="Camino de acceso a un predio rural recién construido con carpeta granular, entre cercos" loading="lazy" width="600" height="450">
+          <figcaption class="project__label">Construcción de acceso a predio rural</figcaption>
         </figure>
         <figure class="project reveal">
-          <img src="proyecto-4.webp" alt="Enfierradura de estructura de hormigón armado según memoria de cálculo" loading="lazy" width="600" height="450">
-          <figcaption class="project__label">Estructura de hormigón armado</figcaption>
+          <img src="proyecto-4.webp" alt="Faena de pavimentación en una calle urbana con barreras y desvío de tránsito" loading="lazy" width="600" height="450">
+          <figcaption class="project__label">Obra vial urbana con manejo de tránsito</figcaption>
         </figure>
         <figure class="project reveal">
-          <img src="proyecto-5.webp" alt="Construcción de obra de drenaje y alcantarilla en camino rural" loading="lazy" width="600" height="450">
-          <figcaption class="project__label">Obra de drenaje vial</figcaption>
+          <img src="proyecto-5.webp" alt="Dos profesionales revisando planos de especialidades sobre una mesa en oficina" loading="lazy" width="600" height="450">
+          <figcaption class="project__label">Revisión de proyectos y coordinación técnica</figcaption>
         </figure>
         <figure class="project reveal">
-          <img src="proyecto-6.webp" alt="Profesionales revisando planos de un proyecto en terreno" loading="lazy" width="600" height="450">
-          <figcaption class="project__label">Revisión de proyecto en terreno</figcaption>
+          <img src="proyecto-6.webp" alt="Alcantarilla de cajón de hormigón en construcción, con enfierradura para la losa" loading="lazy" width="600" height="450">
+          <figcaption class="project__label">Alcantarilla de cajón para drenaje vial</figcaption>
         </figure>
       </div>
     </div>
@@ -1373,6 +1379,41 @@ body.no-scroll{overflow:hidden}
         }
       }
     });
+  });
+
+  /* --------------------------------------------------------
+     B2. SERVICIOS → "Ver más" cuando la descripción queda recortada
+     (solo ocurre en la vista móvil de 2 columnas; en desktop no se
+      recorta y el botón no se agrega).
+     -------------------------------------------------------- */
+  function setupServiceCardToggles(){
+    document.querySelectorAll('.service-card p').forEach(function(p){
+      var existing = p.nextElementSibling;
+      var hasBtn = existing && existing.classList.contains('service-card__more');
+      var clamped = p.scrollHeight - p.clientHeight > 4;
+      if (clamped && !hasBtn){
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'service-card__more';
+        btn.textContent = 'Ver más';
+        btn.setAttribute('aria-expanded', 'false');
+        btn.addEventListener('click', function(){
+          var open = p.classList.toggle('is-expanded');
+          btn.textContent = open ? 'Ver menos' : 'Ver más';
+          btn.setAttribute('aria-expanded', String(open));
+        });
+        p.insertAdjacentElement('afterend', btn);
+      } else if (!clamped && hasBtn && !p.classList.contains('is-expanded')){
+        existing.remove();
+      }
+    });
+  }
+  setupServiceCardToggles();
+  window.addEventListener('load', setupServiceCardToggles);
+  var scResize;
+  window.addEventListener('resize', function(){
+    clearTimeout(scResize);
+    scResize = setTimeout(setupServiceCardToggles, 200);
   });
 
   /* --------------------------------------------------------

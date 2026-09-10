@@ -15,11 +15,11 @@ de obras civiles para clientes públicos y privados en Chile).
 
 | Archivo | Descripción |
 |---|---|
-| `index.html` | Página principal (hero, quiénes somos, servicios, proyectos, cotización, ubicación, footer). |
+| `index.html` | Página principal (hero, quiénes somos, servicios, proyectos, cotización, footer). |
 | `privacidad.html` | Política de privacidad y aviso legal (Ley N° 19.628, Chile). |
 | `robots.txt` / `sitemap.xml` | SEO técnico. |
 | `vercel.json` | Cabeceras de seguridad y caché de estáticos para el despliegue en Vercel. |
-| `hero-bg.webp`, `equipo-terreno.webp`, `proyecto-1..6.webp`, `og-image.jpg` | Recursos gráficos optimizados. |
+| `Herobg.webp`, `QuienesSomos.webp`, `proyecto-1..6.webp`, `og-image.jpg` | Recursos gráficos optimizados. |
 
 ## Despliegue
 
@@ -28,8 +28,9 @@ Proyecto estático: Vercel lo detecta automáticamente sin configuración de bui
 
 ## Pendientes de configuración
 
-- [ ] Endpoint real de Formspree en el `action` del formulario (`index.html`).
-- [ ] Dirección física definitiva (actualmente provisoria) en JSON-LD, sección Ubicación,
-      footer y `privacidad.html`.
-- [ ] URLs de redes sociales (LinkedIn / Instagram) en el footer.
+- [ ] Endpoint real de Formspree en el `action` del formulario (`index.html`),
+      con destinatarios `contacto@mybingenieria.com` y `jaimeplaz@mybingenieria.com`.
 - [ ] Revisión legal del texto de `privacidad.html`.
+
+> La empresa no tiene domicilio físico publicable: no hay sección de ubicación,
+> mapa ni dirección en el sitio ni en el JSON-LD. Tampoco hay redes sociales.

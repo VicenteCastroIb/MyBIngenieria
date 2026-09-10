@@ -790,9 +790,25 @@ body.no-scroll{overflow:hidden}
   }
   .service-card__link{font-size:.78rem;min-height:32px;gap:5px}
 
-  /* ---- 4. PROYECTOS: 2 columnas (galería) ---- */
-  .gallery__grid{grid-template-columns:1fr 1fr;gap:10px}
-  .project__label{font-size:.76rem;padding:10px 12px}
+  /* ---- 4. PROYECTOS: 2 columnas; la descripción va bajo la imagen y
+     se despliega al tocar (no tapa la foto). Solo en móvil. ---- */
+  .gallery__grid{grid-template-columns:1fr 1fr;gap:10px;align-items:start}
+  .project{display:flex;flex-direction:column}
+  .project__toggle{
+    display:flex;align-items:center;justify-content:space-between;gap:8px;width:100%;
+    padding:9px 11px;text-align:left;cursor:pointer;
+    font:600 .73rem/1.2 var(--f-titulo);color:var(--cta);
+    background:var(--surface);border:0;border-top:1px solid var(--borde);
+  }
+  .project__toggle svg{width:14px;height:14px;flex:0 0 14px;transition:transform .2s ease}
+  .project.is-open .project__toggle svg{transform:rotate(180deg)}
+  .project__label{
+    position:static;background:var(--surface);color:var(--titulo);
+    font-size:.76rem;line-height:1.35;
+    max-height:0;overflow:hidden;padding:0 11px;
+    transition:max-height .28s ease,padding .26s ease;
+  }
+  .project.is-open .project__label{max-height:9em;padding:0 11px 11px}
 
   /* ---- 5. FORMULARIO: campos cortos en 2 columnas ---- */
   .form__row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
@@ -1408,12 +1424,44 @@ body.no-scroll{overflow:hidden}
       }
     });
   }
+  /* --------------------------------------------------------
+     B3. PROYECTOS → descripción bajo la imagen, desplegable al tocar.
+     Solo en móvil (<=600px). En pantallas mayores la etiqueta
+     vuelve a su comportamiento normal (overlay / hover).
+     -------------------------------------------------------- */
+  var isPhone = window.matchMedia('(max-width: 600px)');
+  function setupProjectToggles(){
+    var phone = isPhone.matches;
+    document.querySelectorAll('.project').forEach(function(fig){
+      var label = fig.querySelector('.project__label');
+      var toggle = fig.querySelector('.project__toggle');
+      if (phone && label && !toggle){
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'project__toggle';
+        btn.setAttribute('aria-expanded', 'false');
+        btn.innerHTML = '<span>Ver descripción</span>' +
+          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>';
+        btn.addEventListener('click', function(){
+          var open = fig.classList.toggle('is-open');
+          btn.setAttribute('aria-expanded', String(open));
+          btn.firstChild.textContent = open ? 'Ocultar' : 'Ver descripción';
+        });
+        fig.insertBefore(btn, label);
+      } else if (!phone && toggle){
+        toggle.remove();
+        fig.classList.remove('is-open');
+      }
+    });
+  }
+
   setupServiceCardToggles();
-  window.addEventListener('load', setupServiceCardToggles);
-  var scResize;
+  setupProjectToggles();
+  window.addEventListener('load', function(){ setupServiceCardToggles(); setupProjectToggles(); });
+  var uiResize;
   window.addEventListener('resize', function(){
-    clearTimeout(scResize);
-    scResize = setTimeout(setupServiceCardToggles, 200);
+    clearTimeout(uiResize);
+    uiResize = setTimeout(function(){ setupServiceCardToggles(); setupProjectToggles(); }, 200);
   });
 
   /* --------------------------------------------------------

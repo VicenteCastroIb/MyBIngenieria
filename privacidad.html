@@ -11,66 +11,20 @@
 <link rel="canonical" href="https://my-b-ingenieria.vercel.app/privacidad.html">
 
 <!-- Favicon (mismo que el sitio principal) -->
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230A3154'/%3E%3Ctext x='50%25' y='50%25' dy='.1em' text-anchor='middle' dominant-baseline='middle' font-family='Montserrat,Arial,sans-serif' font-size='26' font-weight='700' fill='%23FFFFFF'%3EM%26B%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
-<style>
-  :root{
-    --azul:#0A3154;--azul-900:#072235;--azul-700:#0F4676;
-    --acento:#F5A623;--acento-600:#d98d0c;
-    --gris-claro:#F5F7FA;--gris-borde:#E2E8F0;
-    --texto:#333;--texto-suave:#5b6672;
-    --f-titulo:'Poppins','Montserrat',Arial,sans-serif;
-    --f-cuerpo:'Inter','Open Sans',Arial,sans-serif;
-    --max:860px;--radio:14px;
-  }
-  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-  body{font-family:var(--f-cuerpo);color:var(--texto);line-height:1.7;background:#fff;font-size:16px}
-  a{color:var(--azul-700);font-weight:600}
-  a:hover{color:var(--acento-600)}
-  .container{width:100%;max-width:var(--max);margin:0 auto;padding:0 20px}
-
-  /* Header */
-  .site-header{background:var(--azul);color:#fff;position:sticky;top:0;z-index:10}
-  .site-header .container{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:64px}
-  .brand{display:flex;align-items:center;gap:10px;color:#fff;font-family:var(--f-titulo);font-weight:700;font-size:1rem}
-  .brand__logo{height:48px;width:auto;display:block;filter:brightness(0) invert(1)}
-  .back{color:#fff;font-weight:500;font-size:.9rem;opacity:.9;white-space:nowrap}
-  .back:hover{color:var(--acento);opacity:1}
-
-  /* Contenido */
-  main{padding:48px 0 72px}
-  h1{font-family:var(--f-titulo);color:var(--azul);font-size:1.8rem;line-height:1.2;margin-bottom:8px}
-  .updated{color:var(--texto-suave);font-size:.9rem;margin-bottom:8px}
-  .intro{color:var(--texto-suave);margin:20px 0 8px}
-  h2{font-family:var(--f-titulo);color:var(--azul);font-size:1.2rem;margin:36px 0 12px;padding-top:8px}
-  p,li{margin-bottom:12px;color:#3d4550}
-  ul{padding-left:22px;margin-bottom:12px}
-  .card{background:var(--gris-claro);border:1px solid var(--gris-borde);border-radius:var(--radio);padding:18px 20px;margin:16px 0}
-  .card p:last-child{margin-bottom:0}
-  .note{font-size:.9rem;color:var(--texto-suave);border-left:3px solid var(--acento);padding-left:14px;margin-top:36px}
-
-  /* Footer */
-  .site-footer{background:var(--azul-900);color:rgba(255,255,255,.8);text-align:center;padding:26px 20px;font-size:.88rem}
-  .site-footer a{color:var(--acento)}
-
-  @media (min-width:768px){
-    h1{font-size:2.1rem}
-    main{padding:60px 0 88px}
-  }
-  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-</style>
+<link rel="stylesheet" href="/assets/css/privacidad.css">
 </head>
 <body>
 
 <header class="site-header">
   <div class="container">
     <a class="brand" href="index.html" aria-label="M&amp;B Ingeniería y Construcción — Inicio">
-      <img class="brand__logo" src="logo-myb.png" width="640" height="535"
+      <img class="brand__logo" src="/assets/img/logo-myb.png" width="640" height="535"
            alt="M&amp;B Ingeniería y Construcción SpA">
     </a>
     <a class="back" href="index.html">&larr; Volver al sitio</a>

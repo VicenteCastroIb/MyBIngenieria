@@ -1,0 +1,92 @@
+{
+  "@context": "https://schema.org",
+  "@type": "GeneralContractor",
+  "@id": "https://my-b-ingenieria.vercel.app/#business",
+  "name": "M&B Ingeniería y Construcción SpA",
+  "alternateName": "M&B Ingeniería",
+  "_comment": "TODO: volver a www.mybingenieria.com cuando el dominio esté conectado en Vercel",
+  "url": "https://my-b-ingenieria.vercel.app/",
+  "image": "https://my-b-ingenieria.vercel.app/og-cover.jpg",
+  "logo": "https://my-b-ingenieria.vercel.app/logo-myb.png",
+  "slogan": "Ingeniería y Construcción para Proyectos Exitosos",
+  "email": ["contacto@mybingenieria.com", "jaimeplaz@mybingenieria.com"],
+  "telephone": "+56947780892",
+  "priceRange": "$$",
+  "currenciesAccepted": "CLP",
+  "knowsLanguage": ["es"],
+  "description": "Ingeniería, consultoría técnica y construcción de obras civiles para clientes públicos y privados en Chile: asesorías técnicas, revisión de proyectos, estudios de impacto vial, memorias de cálculo estructural, accesos a predios y obras civiles.",
+  "areaServed": {
+    "@type": "Country",
+    "name": "Chile"
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "09:00",
+      "closes": "18:00"
+    }
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+56947780892",
+    "email": "contacto@mybingenieria.com",
+    "contactType": "sales",
+    "areaServed": "CL",
+    "availableLanguage": ["Spanish"]
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Servicios de ingeniería y construcción",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Asesorías técnicas",
+          "description": "Apoyo especializado a mandantes y unidades técnicas en la toma de decisiones de ingeniería durante el ciclo del proyecto."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Revisión de proyectos",
+          "description": "Revisión independiente de proyectos de arquitectura y especialidades: consistencia, memorias, planos y cumplimiento normativo."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Estudios de impacto vial",
+          "description": "Evaluación de flujos, accesos y mitigaciones viales para permisos y proyectos que generan nueva demanda de transporte."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Memorias de cálculo estructural",
+          "description": "Diseño y cálculo de estructuras de hormigón armado, acero y albañilería, con memoria y planos para permisos y construcción."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Accesos a predios",
+          "description": "Diseño y construcción de accesos vehiculares a predios agrícolas, industriales y habitacionales, con carpeta técnica para la autoridad vial."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Construcción y obras civiles",
+          "description": "Ejecución de obras civiles: fundaciones, pavimentos, obras de drenaje, muros y mejoramientos, con control de calidad y avance."
+        }
+      }
+    ]
+  }
+}

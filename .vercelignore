@@ -1,0 +1,9 @@
+# Imágenes fuente sin optimizar: se conservan en el repositorio por si se
+# necesitan para reprocesarlas, pero no se sirven en producción.
+assets/img/_source/
+
+# Herramientas de asistencia de desarrollo (no forman parte del sitio)
+.claude/
+.agents/
+skills-lock.json
+README.md

@@ -15,3 +15,8 @@ dist/
 
 # Logs y temporales
 *.log
+
+# Herramientas de asistencia de desarrollo (no forman parte del sitio)
+.claude/
+.agents/
+skills-lock.json

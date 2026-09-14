@@ -3,9 +3,6 @@
 
   var WPP_BASE = 'https://wa.me/56947780892?text=';
 
-  /* --------------------------------------------------------
-     A. MENÚ MOBILE (hamburguesa)
-     -------------------------------------------------------- */
   var hamburger  = document.getElementById('hamburger');
   var mobileMenu = document.getElementById('mobile-menu');
   var wppFloat   = document.getElementById('wpp-float');
@@ -17,7 +14,7 @@
     hamburger.setAttribute('aria-expanded', 'true');
     hamburger.setAttribute('aria-label', 'Cerrar menú de navegación');
     document.body.classList.add('no-scroll');
-    wppFloat.classList.add('is-hidden');           // ocultar botón flotante con el menú abierto
+    wppFloat.classList.add('is-hidden');
     var firstLink = mobileMenu.querySelector('a');
     if (firstLink) firstLink.focus();
   }
@@ -36,19 +33,14 @@
     else openMenu();
   });
 
-  // Cerrar al pulsar un enlace del menú
   mobileMenu.querySelectorAll('a').forEach(function(a){
     a.addEventListener('click', closeMenu);
   });
 
-  // Cerrar con Escape
   document.addEventListener('keydown', function(e){
     if (e.key === 'Escape' && mobileMenu.classList.contains('is-open')) closeMenu();
   });
 
-  /* --------------------------------------------------------
-     B. SERVICIOS → preseleccionar servicio en el formulario
-     -------------------------------------------------------- */
   var servicioSelect = document.getElementById('servicio');
   document.querySelectorAll('.service-card__link[data-service]').forEach(function(link){
     link.addEventListener('click', function(){
@@ -64,11 +56,6 @@
     });
   });
 
-  /* --------------------------------------------------------
-     B2. SERVICIOS → "Ver más" cuando la descripción queda recortada
-     (solo ocurre en la vista móvil de 2 columnas; en desktop no se
-      recorta y el botón no se agrega).
-     -------------------------------------------------------- */
   function setupServiceCardToggles(){
     document.querySelectorAll('.service-card p').forEach(function(p){
       var existing = p.nextElementSibling;
@@ -91,11 +78,7 @@
       }
     });
   }
-  /* --------------------------------------------------------
-     B3. PROYECTOS → descripción bajo la imagen, desplegable al tocar.
-     Solo en móvil (<=600px). En pantallas mayores la etiqueta
-     vuelve a su comportamiento normal (overlay / hover).
-     -------------------------------------------------------- */
+
   var isPhone = window.matchMedia('(max-width: 600px)');
   function setupProjectToggles(){
     var phone = isPhone.matches;
@@ -131,9 +114,6 @@
     uiResize = setTimeout(function(){ setupServiceCardToggles(); setupProjectToggles(); }, 200);
   });
 
-  /* --------------------------------------------------------
-     C. FADE-IN DE SECCIONES AL HACER SCROLL (IntersectionObserver)
-     -------------------------------------------------------- */
   var reveals = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window){
     var io = new IntersectionObserver(function(entries){
@@ -149,17 +129,8 @@
     reveals.forEach(function(el){ el.classList.add('is-visible'); });
   }
 
-  /* --------------------------------------------------------
-     D. AÑO DINÁMICO EN EL FOOTER
-     -------------------------------------------------------- */
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  /* --------------------------------------------------------
-     D2. CAMBIO DE TEMA CLARO / OSCURO
-     - Por defecto respeta la preferencia del sistema.
-     - Si el usuario elige manualmente, se guarda en localStorage
-       (aplicado antes del render por el script del <head>).
-     -------------------------------------------------------- */
   var themeToggle = document.getElementById('theme-toggle');
   var themeMeta   = document.querySelector('meta[name="theme-color"]:not([media])')
                  || document.querySelector('meta[name="theme-color"]');
@@ -188,12 +159,8 @@
       syncTheme();
     });
   }
-  // Si el usuario no ha elegido manualmente, seguir los cambios del sistema
   darkMq.addEventListener('change', syncTheme);
 
-  /* --------------------------------------------------------
-     D3. SOMBRA DEL HEADER AL HACER SCROLL
-     -------------------------------------------------------- */
   var headerEl = document.querySelector('.header');
   function onScrollHeader(){
     if (headerEl) headerEl.classList.toggle('is-scrolled', window.scrollY > 24);
@@ -201,9 +168,6 @@
   onScrollHeader();
   window.addEventListener('scroll', onScrollHeader, { passive: true });
 
-  /* --------------------------------------------------------
-     E. WHATSAPP DESDE EL FORMULARIO (mensaje precompletado)
-     -------------------------------------------------------- */
   var form       = document.getElementById('quote-form');
   var wppFormBtn  = document.getElementById('wpp-form-btn');
   var statusBox  = document.getElementById('form-status');
@@ -225,7 +189,6 @@
     return WPP_BASE + encodeURIComponent(txt);
   }
 
-  // Actualiza el href del botón de WhatsApp del formulario al vuelo
   ['input','change'].forEach(function(evt){
     form.addEventListener(evt, function(){
       wppFormBtn.setAttribute('href', buildWppMessage());
@@ -233,27 +196,17 @@
   });
   wppFormBtn.setAttribute('href', buildWppMessage());
 
-  /* --------------------------------------------------------
-     F. ENVÍO DEL FORMULARIO
-     --------------------------------------------------------
-     Implementación con FORMSPREE vía fetch (AJAX).
-     - Requiere reemplazar "TU_ID_FORMSPREE" en el action del <form>.
-     - Si aún no está configurado, se avisa al usuario y se ofrece WhatsApp.
-     -------------------------------------------------------- */
   function showStatus(type, msg){
     statusBox.className = 'form__status ' + (type === 'ok' ? 'is-ok' : 'is-error');
     statusBox.textContent = msg;
     statusBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
 
-  // Etiquetas legibles para el aviso de "campos obligatorios"
   var REQUIRED_LABELS = {
     nombre: 'Nombre completo', email: 'Correo electrónico', telefono: 'Teléfono',
     servicio: 'Servicio requerido', mensaje: 'Describa su proyecto'
   };
 
-  // Validación básica en JS (adicional a la validación HTML5 nativa):
-  // devuelve el primer campo obligatorio que quedó vacío, o null si están todos.
   function firstEmptyRequired(){
     var els = form.querySelectorAll('[required]');
     for (var i = 0; i < els.length; i++){
@@ -265,12 +218,9 @@
   form.addEventListener('submit', function(e){
     e.preventDefault();
 
-    // 0) Honeypot: si el campo trampa "_gotcha" viene relleno, es un bot.
-    // Se corta en silencio (sin mensaje de error) para no darle pistas al script.
     var honeypot = form.querySelector('[name="_gotcha"]');
     if (honeypot && honeypot.value) return;
 
-    // 1) Validación básica en JS: campos obligatorios completos
     var empty = firstEmptyRequired();
     if (empty){
       showStatus('error', 'Complete los campos obligatorios: falta «' +
@@ -279,13 +229,11 @@
       return;
     }
 
-    // 2) Validación HTML5 nativa: formato de correo, patrón de teléfono, largos mínimos
     if (!form.checkValidity()){
       form.reportValidity();
       return;
     }
 
-    // Mantener el enlace de WhatsApp de respaldo con los datos ya escritos
     wppFormBtn.setAttribute('href', buildWppMessage());
 
     var action = form.getAttribute('action') || '';
@@ -330,24 +278,5 @@
       submitBtn.textContent = originalText;
     });
   });
-
-  /* --------------------------------------------------------
-     G. ALTERNATIVA: EMAILJS (dejar comentado si usas Formspree)
-     --------------------------------------------------------
-     1. Añade en el <head>:
-        <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"><\/script>
-     2. Reemplaza las claves y descomenta:
-
-     // emailjs.init({ publicKey: 'TU_PUBLIC_KEY' });
-     // form.addEventListener('submit', function(e){
-     //   e.preventDefault();
-     //   if (!form.checkValidity()){ form.reportValidity(); return; }
-     //   submitBtn.disabled = true;
-     //   emailjs.sendForm('TU_SERVICE_ID', 'TU_TEMPLATE_ID', form)
-     //     .then(function(){ form.reset(); showStatus('ok', '¡Gracias! Recibimos tu solicitud.'); })
-     //     .catch(function(){ showStatus('error', 'No se pudo enviar. Usa WhatsApp por favor.'); })
-     //     .finally(function(){ submitBtn.disabled = false; });
-     // });
-     -------------------------------------------------------- */
 
 })();

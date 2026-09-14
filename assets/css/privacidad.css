@@ -14,7 +14,6 @@
   a:hover{color:var(--acento-600)}
   .container{width:100%;max-width:var(--max);margin:0 auto;padding:0 20px}
 
-  /* Header */
   .site-header{background:var(--azul);color:#fff;position:sticky;top:0;z-index:10}
   .site-header .container{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:64px}
   .brand{display:flex;align-items:center;gap:10px;color:#fff;font-family:var(--f-titulo);font-weight:700;font-size:1rem}
@@ -22,7 +21,6 @@
   .back{color:#fff;font-weight:500;font-size:.9rem;opacity:.9;white-space:nowrap}
   .back:hover{color:var(--acento);opacity:1}
 
-  /* Contenido */
   main{padding:48px 0 72px}
   h1{font-family:var(--f-titulo);color:var(--azul);font-size:1.8rem;line-height:1.2;margin-bottom:8px}
   .updated{color:var(--texto-suave);font-size:.9rem;margin-bottom:8px}
@@ -34,7 +32,6 @@
   .card p:last-child{margin-bottom:0}
   .note{font-size:.9rem;color:var(--texto-suave);border-left:3px solid var(--acento);padding-left:14px;margin-top:36px}
 
-  /* Footer */
   .site-footer{background:var(--azul-900);color:rgba(255,255,255,.8);text-align:center;padding:26px 20px;font-size:.88rem}
   .site-footer a{color:var(--acento)}
 

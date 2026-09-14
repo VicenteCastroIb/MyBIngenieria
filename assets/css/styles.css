@@ -1,22 +1,17 @@
-/* ============================================================
-   0. VARIABLES Y TOKENS DE DISEÑO
-   ============================================================ */
 :root{
   color-scheme:light;
 
-  /* Paleta corporativa (marca — estable en ambos temas) */
-  --azul:#0A3154;          /* primario */
-  --azul-900:#072235;      /* variante oscura para degradados / banda de contraste */
-  --azul-700:#0F4676;      /* variante media (hover) */
-  --acento:#F5A623;        /* naranja seguridad — acentos: íconos, enlaces, foco, detalles */
-  --acento-600:#d98d0c;    /* hover acento */
-  --cta:#2168BE;           /* azul profesional — botones primarios (Cotizar / Solicitar cotización) */
-  --cta-600:#1A5299;       /* hover CTA */
-  --wpp:#20A257;           /* verde WhatsApp atenuado (menos flúor, más corporativo) */
+  --azul:#0A3154;
+  --azul-900:#072235;
+  --azul-700:#0F4676;
+  --acento:#F5A623;
+  --acento-600:#d98d0c;
+  --cta:#2168BE;
+  --cta-600:#1A5299;
+  --wpp:#20A257;
   --wpp-600:#178446;
   --blanco:#FFFFFF;
 
-  /* Superficies, bordes y texto — tokenizados para modo oscuro */
   --bg:#FFFFFF;
   --bg-alt:#F4F7FA;
   --surface:#FFFFFF;
@@ -31,26 +26,19 @@
   --mark-bg:var(--azul);
   --grid-line:rgba(10,49,84,.05);
 
-  /* Aliases retro-compatibles */
   --gris-claro:var(--bg-alt);
   --gris-borde:var(--borde);
 
-  /* Estados de formulario */
   --danger:#C0392B;   --danger-bg:#FFF5F4;
   --ok:#1E7A3D;   --ok-bg:#E7F6EC;   --ok-bd:#B7E2C4;
   --err:#B0281C;  --err-bg:#FDECEB;  --err-bd:#F3C6C1;
 
-  /* Sombras en capas */
   --sombra:0 1px 2px rgba(10,49,84,.06), 0 8px 24px rgba(10,49,84,.08);
   --sombra-hover:0 2px 8px rgba(10,49,84,.10), 0 22px 48px rgba(10,49,84,.16);
 
-  /* Tipografía */
   --f-titulo:'Poppins','Montserrat',Arial,sans-serif;
   --f-cuerpo:'Inter','Open Sans',Arial,sans-serif;
 
-  /* Escala tipográfica fluida (375px → 1200px)
-     Pasos de peso deliberados: 800 (h1/h2) · 700 (h3/h4) · 600 (eyebrow,
-     botones, labels) · 500 (nav) · 400 (cuerpo). */
   --fs-eyebrow:.8rem;
   --fs-lead:clamp(1.05rem, .97rem + .55vw, 1.25rem);
   --fs-h4:1.05rem;
@@ -58,12 +46,10 @@
   --fs-h2:clamp(1.65rem, 1.1rem + 2.3vw, 2.55rem);
   --fs-h1:clamp(2.1rem, 1.3rem + 3.7vw, 3.65rem);
 
-  /* Escala de espaciado (base 8px) — usada en paddings de sección y gaps */
   --sp-1:4px;  --sp-2:8px;   --sp-3:12px;  --sp-4:16px;
   --sp-5:24px; --sp-6:32px;  --sp-7:40px;  --sp-8:48px;  --sp-10:64px;  --sp-12:80px;
   --section-y:clamp(64px, 3.5vw + 44px, 104px);
 
-  /* Layout */
   --max:1200px;
   --radio:14px;
   --radio-sm:10px;
@@ -71,12 +57,6 @@
   --transicion:.22s ease;
 }
 
-/* ============================================================
-   0b. MODO OSCURO
-   Preferencia del sistema (prefers-color-scheme) + override
-   manual mediante [data-theme] en <html>. Paleta pizarra
-   templada, no una simple inversión.
-   ============================================================ */
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]){
     color-scheme:dark;
@@ -126,9 +106,6 @@
   --sombra-hover:0 2px 10px rgba(0,0,0,.5), 0 26px 52px rgba(0,0,0,.52);
 }
 
-/* ============================================================
-   1. RESET BÁSICO
-   ============================================================ */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;scroll-padding-top:calc(var(--header-h) + 12px);-webkit-text-size-adjust:100%;background:var(--bg)}
 body{
@@ -148,30 +125,24 @@ h1,h2,h3,h4{font-family:var(--f-titulo);color:var(--titulo);line-height:1.18;let
 h1,h2{font-weight:800;letter-spacing:-.025em}
 h3,h4{font-weight:700}
 
-/* Accesibilidad: enlace para saltar al contenido */
 .skip-link{
   position:absolute;left:-999px;top:0;z-index:1000;
   background:var(--azul);color:#fff;padding:12px 18px;border-radius:0 0 8px 0;
 }
 .skip-link:focus{left:0}
 
-/* Foco visible consistente para navegación por teclado */
 a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{
   outline:3px solid var(--acento);
   outline-offset:2px;
   border-radius:4px;
 }
 
-/* ============================================================
-   2. UTILIDADES DE LAYOUT
-   ============================================================ */
 .container{width:100%;max-width:var(--max);margin:0 auto;padding:0 20px}
 .section{padding:var(--section-y) 0}
-/* Alternancia intencional blanco / gris claro plano (sin textura) */
+
 .section--alt{background:var(--bg-alt)}
 .section__head{text-align:center;max-width:640px;margin:0 auto var(--sp-8)}
-/* Rótulo de sección: siempre centrado, con líneas cortas a los lados y el
-   mismo gris tenue del texto (el que ya tenía el rótulo de "Quiénes Somos"). */
+
 .section__eyebrow,
 .about__body .section__eyebrow,
 .quote__aside .section__eyebrow{
@@ -187,10 +158,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .section__title{font-size:var(--fs-h2);letter-spacing:-.015em;margin-bottom:12px}
 .section__text{color:var(--texto-suave);font-size:1rem}
 
-/* ============================================================
-   3. BOTONES
-   Touch target mínimo 44x44px garantizado con min-height.
-   ============================================================ */
 .btn{
   display:inline-flex;align-items:center;justify-content:center;gap:9px;
   min-height:48px;padding:12px 22px;
@@ -216,9 +183,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 
 .btn--block{width:100%}
 
-/* ============================================================
-   4. HEADER STICKY + NAVEGACIÓN
-   ============================================================ */
 .header{
   position:fixed;top:0;left:0;right:0;z-index:100;
   height:var(--header-h);
@@ -226,9 +190,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   border-bottom:0;
   transition:box-shadow .3s ease, background-color .3s ease, border-color .3s ease;
 }
-/* Al tope de la página el header es parte del hero: sin barra ni línea inferior,
-   texto blanco y un degradado superior que se desvanece antes del borde para
-   que no quede ninguna costura visible sobre la foto. */
+
 .header:not(.is-scrolled){
   background:linear-gradient(180deg, rgba(6,24,40,.5) 0%, rgba(6,24,40,.13) 55%, rgba(6,24,40,0) 82%);
   box-shadow:none;
@@ -240,7 +202,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .header:not(.is-scrolled) .nav__link:hover{background:rgba(255,255,255,.16);color:#fff}
 .header:not(.is-scrolled) .theme-toggle:hover{background:rgba(255,255,255,.16)}
 
-/* Al comenzar el scroll hacia abajo: barra sólida del tema */
 .header.is-scrolled{
   background:var(--header-bg);
   backdrop-filter:saturate(180%) blur(10px);
@@ -269,8 +230,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   :root:not([data-theme="light"]) .theme-toggle .t-sun{display:none}
 }
 .brand{display:flex;align-items:center;gap:10px}
-/* Logotipo oficial de la empresa (PNG sin fondo, azul oscuro).
-   Se invierte a blanco sobre el hero y cuando el header va en tema oscuro. */
+
 .brand__logo{
   height:48px;width:auto;display:block;
   filter:brightness(0) invert(1);
@@ -282,7 +242,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   :root:not([data-theme="light"]) .header.is-scrolled .brand__logo{filter:brightness(0) invert(1)}
 }
 
-/* Navegación desktop (oculta en mobile) */
 .nav{display:none}
 .nav__list{display:flex;align-items:center;gap:6px}
 .nav__link{
@@ -292,7 +251,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 }
 .nav__link:hover{background:var(--surface-2);color:var(--acento-600)}
 
-/* Botón hamburguesa (solo mobile) */
 .hamburger{
   width:44px;height:44px;display:flex;flex-direction:column;
   align-items:center;justify-content:center;gap:5px;border-radius:8px;
@@ -305,7 +263,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .hamburger[aria-expanded="true"] span:nth-child(2){opacity:0}
 .hamburger[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 
-/* Panel de menú mobile a pantalla completa */
 .mobile-menu{
   position:fixed;inset:0;z-index:99;
   background:var(--azul);
@@ -327,17 +284,12 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 
 body.no-scroll{overflow:hidden}
 
-/* ============================================================
-   5. HERO
-   Fondo: Herobg.webp + leve degradado azul hacia la izquierda.
-   ============================================================ */
 .hero{
   position:relative;overflow:hidden;
   min-height:100svh;
   display:flex;align-items:center;
   color:#fff;
-  /* Degradado azul hacia la izquierda: sombrea el costado del texto para
-     que resalte y libera la mitad derecha de la foto. */
+
   background:
     linear-gradient(to right,
       rgba(7,34,53,.96) 0%,
@@ -354,15 +306,12 @@ body.no-scroll{overflow:hidden}
 }
 .hero__lead{font-size:var(--fs-lead);max-width:54ch;margin-bottom:30px;color:rgba(255,255,255,.92)}
 .hero__ctas{display:flex;flex-direction:column;gap:12px;max-width:340px}
-/* Entrada escalonada del contenido del hero */
+
 .hero__inner > *{animation:heroIn .7s cubic-bezier(.22,1,.36,1) both}
 .hero__inner > *:nth-child(2){animation-delay:.08s}
 .hero__inner > *:nth-child(3){animation-delay:.16s}
 @keyframes heroIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
 
-/* ============================================================
-   6. QUIÉNES SOMOS
-   ============================================================ */
 .about__grid{display:grid;gap:var(--sp-6)}
 .about__media img{
   border-radius:var(--radio);box-shadow:var(--sombra);
@@ -373,32 +322,28 @@ body.no-scroll{overflow:hidden}
 .about__body p{color:var(--texto-suave);margin-bottom:var(--sp-4)}
 .about__body p:last-child{margin-bottom:0}
 
-/* ============================================================
-   7. SERVICIOS — grid de 6 tarjetas
-   ============================================================ */
 .services__grid{display:grid;gap:var(--sp-5);align-items:stretch}
 .service-card{
   position:relative;overflow:hidden;
   display:flex;flex-direction:column;height:100%;
   background:var(--surface);
-  border:1px solid var(--borde-suave);          /* borde casi transparente */
+  border:1px solid var(--borde-suave);
   border-radius:var(--radio);
-  padding:var(--sp-5);                           /* card más plana verticalmente */
-  box-shadow:var(--sombra);                      /* sombra suave en vez de borde gris */
+  padding:var(--sp-5);
+  box-shadow:var(--sombra);
   transition:transform var(--transicion),box-shadow var(--transicion),border-color var(--transicion);
 }
 .service-card:hover{
   transform:translateY(-4px);
   box-shadow:var(--sombra-hover);
-  border-color:rgba(33,104,190,.6);             /* borde azul profesional al hacer hover */
+  border-color:rgba(33,104,190,.6);
 }
 .service-card > *{position:relative;z-index:1}
 
-/* ---- Media: foto en la franja superior (sangra hasta los bordes) ---- */
 .service-card__media{
   position:relative;
   margin:calc(var(--sp-5) * -1) calc(var(--sp-5) * -1) var(--sp-4);
-  aspect-ratio:2 / 1;                            /* franja baja: aplana la card */
+  aspect-ratio:2 / 1;
   overflow:hidden;
   background:var(--surface-2);
 }
@@ -407,7 +352,7 @@ body.no-scroll{overflow:hidden}
   transition:transform .45s cubic-bezier(.22,1,.36,1);
 }
 .service-card:hover .service-card__media img{transform:scale(1.06)}
-/* Viñeta en la esquina superior derecha: el número se lee sobre foto clara u oscura */
+
 .service-card__media::after{
   content:"";position:absolute;inset:0;pointer-events:none;
   background:
@@ -415,7 +360,6 @@ body.no-scroll{overflow:hidden}
     linear-gradient(180deg, rgba(7,34,53,.22) 0%, rgba(7,34,53,0) 38%);
 }
 
-/* Número decorativo: blanco, sobre la esquina superior de la foto */
 .service-card__num{
   position:absolute;top:10px;right:16px;z-index:2;
   font-family:var(--f-titulo);font-weight:800;font-size:2.2rem;line-height:1;
@@ -426,7 +370,6 @@ body.no-scroll{overflow:hidden}
 .service-card h3{font-size:var(--fs-h3);margin-bottom:var(--sp-2)}
 .service-card p{font-size:.92rem;color:var(--texto-suave);margin-bottom:var(--sp-3)}
 
-/* Sub-ítems que desglosan la descripción del servicio */
 .service-card__points{display:grid;gap:6px;margin-bottom:var(--sp-3)}
 .service-card__points li{
   position:relative;padding-left:22px;
@@ -438,7 +381,6 @@ body.no-scroll{overflow:hidden}
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232168BE' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E");
 }
 
-/* El enlace se ancla al fondo: iguala la altura visual de las 6 cards */
 .service-card__link{
   margin-top:auto;
   display:inline-flex;align-items:center;gap:6px;min-height:44px;
@@ -448,9 +390,6 @@ body.no-scroll{overflow:hidden}
 .service-card:hover .service-card__link svg,
 .service-card__link:hover svg{transform:translateX(4px)}
 
-/* ============================================================
-   8. GALERÍA DE PROYECTOS
-   ============================================================ */
 .gallery__grid{display:grid;gap:var(--sp-4)}
 .project{
   position:relative;overflow:hidden;border-radius:var(--radio);
@@ -463,16 +402,13 @@ body.no-scroll{overflow:hidden}
   transition:transform .4s ease;
 }
 .project__label{
-  /* En mobile el título va SIEMPRE visible bajo/encima de la imagen */
+
   position:absolute;left:0;right:0;bottom:0;
   padding:14px 16px;
   font-family:var(--f-titulo);font-weight:600;font-size:.9rem;color:#fff;
   background:linear-gradient(to top, rgba(7,34,53,.9), rgba(7,34,53,0));
 }
 
-/* ============================================================
-   10. FORMULARIO DE COTIZACIÓN
-   ============================================================ */
 .quote__grid{display:grid;gap:var(--sp-6)}
 .quote__aside h2{font-size:var(--fs-h2);margin-bottom:var(--sp-3)}
 .quote__aside p{color:var(--texto-suave);margin-bottom:var(--sp-5)}
@@ -500,7 +436,7 @@ body.no-scroll{overflow:hidden}
 .field input:focus,.field select:focus,.field textarea:focus{
   background:var(--surface);border-color:var(--acento);outline:none;
 }
-/* Estado de error (HTML5 :invalid tras interacción) */
+
 .field input:user-invalid,.field select:user-invalid,.field textarea:user-invalid{
   border-color:var(--danger);background:var(--danger-bg);
 }
@@ -524,9 +460,6 @@ body.no-scroll{overflow:hidden}
   content:"";flex:1;height:1px;background:var(--borde);
 }
 
-/* ============================================================
-   11. FOOTER
-   ============================================================ */
 .footer{background:var(--azul-900);color:rgba(255,255,255,.82);padding:var(--sp-8) 0 var(--sp-5)}
 .footer__grid{display:grid;gap:var(--sp-6)}
 .footer h3{color:#fff;font-size:1rem;font-weight:700;margin-bottom:var(--sp-3)}
@@ -542,9 +475,6 @@ body.no-scroll{overflow:hidden}
 }
 .footer__bottom a{text-decoration:underline}
 
-/* ============================================================
-   12. BOTÓN FLOTANTE WHATSAPP
-   ============================================================ */
 .wpp-float{
   position:fixed;right:16px;bottom:16px;z-index:90;
   width:56px;height:56px;border-radius:50%;
@@ -557,12 +487,9 @@ body.no-scroll{overflow:hidden}
 .wpp-float svg{width:30px;height:30px}
 .wpp-float.is-hidden{opacity:0;pointer-events:none;transform:scale(.6)}
 
-/* ============================================================
-   13. MICRO-INTERACCIONES: fade-in al hacer scroll
-   ============================================================ */
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.22,1,.36,1),transform .6s cubic-bezier(.22,1,.36,1)}
 .reveal.is-visible{opacity:1;transform:none}
-/* Cascada al revelar grillas de tarjetas */
+
 :where(.services__grid,.gallery__grid) > .reveal:nth-child(2){transition-delay:.07s}
 :where(.services__grid,.gallery__grid) > .reveal:nth-child(3){transition-delay:.14s}
 :where(.services__grid,.gallery__grid) > .reveal:nth-child(4){transition-delay:.21s}
@@ -575,15 +502,11 @@ body.no-scroll{overflow:hidden}
   *{transition:none!important;animation:none!important}
 }
 
-/* ============================================================
-   14. MEDIA QUERIES — TABLET (>=768px)
-   ============================================================ */
 @media (min-width:768px){
   .section__title{letter-spacing:-.02em}
 
   .hero__ctas{flex-direction:row;max-width:none}
-  /* En pantallas anchas el texto ocupa la mitad izquierda: el degradado
-     cubre esa zona con fuerza y deja ~40% de la foto limpia a la derecha. */
+
   .hero{
     background:
       linear-gradient(to right,
@@ -607,13 +530,9 @@ body.no-scroll{overflow:hidden}
   .footer__bottom{flex-direction:row;justify-content:space-between}
 }
 
-/* ============================================================
-   15. MEDIA QUERIES — DESKTOP (>=1024px / 1200px+)
-   ============================================================ */
 @media (min-width:1024px){
   :root{--header-h:76px}
 
-  /* Se muestra la navegación completa y se oculta la hamburguesa */
   .nav{display:block}
   .hamburger{display:none}
   .brand__logo{height:60px}
@@ -621,7 +540,6 @@ body.no-scroll{overflow:hidden}
   .services__grid{grid-template-columns:repeat(3,1fr)}
   .gallery__grid{grid-template-columns:repeat(3,1fr)}
 
-  /* Hover con zoom + overlay solo en dispositivos con puntero fino */
   .project img{transform:scale(1.001)}
   .project:hover img{transform:scale(1.08)}
   .project__label{
@@ -638,21 +556,10 @@ body.no-scroll{overflow:hidden}
   .section__head{margin-bottom:48px}
 }
 
-/* ============================================================
-   16. AJUSTES MOBILE (<=600px)
-   Correcciones puntuales de layout. No afecta tablet ni desktop
-   (los bloques min-width:768/1024 nunca aplican bajo 768px).
-   ============================================================ */
 @media (max-width:600px){
 
-  /* ---- 1. HERO ---- */
-  /* El shorthand `padding:… 0 …` de .hero__inner anulaba el padding
-     horizontal de .container; se restituye solo en mobile. */
   .hero__inner{padding-left:22px;padding-right:22px}
 
-  /* En mobile el texto ocupa todo el ancho: el degradado mantiene su
-     sesgo a la izquierda pero nunca llega a transparente, para que la
-     línea de apoyo siga legible sobre la foto. */
   .hero{
     background:
       linear-gradient(118deg,
@@ -662,7 +569,6 @@ body.no-scroll{overflow:hidden}
       url('/assets/img/Herobg.webp') center/cover no-repeat;
   }
 
-  /* Los dos CTA siempre lado a lado, mitad y mitad; nunca apilados. */
   .hero__ctas{
     flex-direction:row;flex-wrap:nowrap;
     gap:10px;width:100%;max-width:none;
@@ -675,9 +581,6 @@ body.no-scroll{overflow:hidden}
   }
   .hero__ctas .btn svg{flex:0 0 auto}
 
-  /* ---- 3. SERVICIOS: 2 columnas compactas ----
-     Imagen protagonista, tipografía más chica y descripción resumida a
-     2 líneas con botón "Ver más" para desplegar el resto. Sin viñetas. */
   .services__grid{grid-template-columns:1fr 1fr;gap:12px}
   .service-card{padding:11px}
   .service-card__media{margin:-11px -11px 9px;aspect-ratio:4 / 3}
@@ -696,8 +599,6 @@ body.no-scroll{overflow:hidden}
   }
   .service-card__link{font-size:.78rem;min-height:32px;gap:5px}
 
-  /* ---- 4. PROYECTOS: 2 columnas; la descripción va bajo la imagen y
-     se despliega al tocar (no tapa la foto). Solo en móvil. ---- */
   .gallery__grid{grid-template-columns:1fr 1fr;gap:10px;align-items:start}
   .project{display:flex;flex-direction:column}
   .project__toggle{
@@ -716,16 +617,11 @@ body.no-scroll{overflow:hidden}
   }
   .project.is-open .project__label{max-height:9em;padding:0 11px 11px}
 
-  /* ---- 5. FORMULARIO: campos cortos en 2 columnas ---- */
   .form__row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
   .field label{font-size:.78rem}
   .field input,.field select{padding:11px 10px;font-size:.85rem}
 }
 
-/* ============================================================
-   17. UTILIDADES (reemplazan atributos style="" inline —
-   requerido para permitir un CSP sin 'unsafe-inline' en style-src)
-   ============================================================ */
 .nav__cta{margin-left:8px}
 .footer__desc{font-size:.9rem;max-width:38ch}
 .visually-hidden{

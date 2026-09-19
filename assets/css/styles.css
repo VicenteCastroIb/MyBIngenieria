@@ -293,6 +293,7 @@ body.no-scroll{overflow:hidden}
 
 .hero{
   position:relative;overflow:hidden;
+  min-height:100vh;
   min-height:100svh;
   display:flex;align-items:center;
   color:#fff;

@@ -409,6 +409,22 @@ body.no-scroll{overflow:hidden}
   background:linear-gradient(to top, rgba(7,34,53,.9), rgba(7,34,53,0));
 }
 
+.checklist{display:grid;gap:var(--sp-3);max-width:920px;margin:0 auto}
+.checklist__item{
+  display:flex;align-items:flex-start;gap:var(--sp-4);
+  padding:var(--sp-4) var(--sp-5);
+  background:var(--surface);
+  border:1px solid var(--borde-suave);
+  border-radius:var(--radio);
+  box-shadow:var(--sombra);
+  line-height:1.5;color:var(--texto);
+}
+.checklist__item svg{
+  flex:0 0 28px;width:28px;height:28px;padding:6px;
+  border-radius:50%;
+  background:var(--acento);color:var(--azul-900);
+}
+
 .quote__grid{display:grid;gap:var(--sp-6)}
 .quote__aside h2{font-size:var(--fs-h2);margin-bottom:var(--sp-3)}
 .quote__aside p{color:var(--texto-suave);margin-bottom:var(--sp-5)}
@@ -490,11 +506,11 @@ body.no-scroll{overflow:hidden}
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.22,1,.36,1),transform .6s cubic-bezier(.22,1,.36,1)}
 .reveal.is-visible{opacity:1;transform:none}
 
-:where(.services__grid,.gallery__grid) > .reveal:nth-child(2){transition-delay:.07s}
-:where(.services__grid,.gallery__grid) > .reveal:nth-child(3){transition-delay:.14s}
-:where(.services__grid,.gallery__grid) > .reveal:nth-child(4){transition-delay:.21s}
-:where(.services__grid,.gallery__grid) > .reveal:nth-child(5){transition-delay:.28s}
-:where(.services__grid,.gallery__grid) > .reveal:nth-child(6){transition-delay:.35s}
+:where(.services__grid,.gallery__grid,.checklist) > .reveal:nth-child(2){transition-delay:.07s}
+:where(.services__grid,.gallery__grid,.checklist) > .reveal:nth-child(3){transition-delay:.14s}
+:where(.services__grid,.gallery__grid,.checklist) > .reveal:nth-child(4){transition-delay:.21s}
+:where(.services__grid,.gallery__grid,.checklist) > .reveal:nth-child(5){transition-delay:.28s}
+:where(.services__grid,.gallery__grid,.checklist) > .reveal:nth-child(6){transition-delay:.35s}
 @media (prefers-reduced-motion:reduce){
   .reveal{opacity:1;transform:none;transition:none;transition-delay:0s!important}
   .hero__inner > *{animation:none!important;opacity:1!important;transform:none!important}
@@ -521,6 +537,7 @@ body.no-scroll{overflow:hidden}
   .about__grid{grid-template-columns:1fr 1fr;align-items:center;gap:var(--sp-8)}
   .services__grid{grid-template-columns:1fr 1fr}
   .gallery__grid{grid-template-columns:1fr 1fr}
+  .checklist{grid-template-columns:1fr 1fr;gap:var(--sp-4)}
 
   .quote__grid{grid-template-columns:.9fr 1.1fr;align-items:start;gap:var(--sp-8)}
   .form{padding:var(--sp-6)}

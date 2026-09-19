@@ -409,6 +409,13 @@ body.no-scroll{overflow:hidden}
   background:linear-gradient(to top, rgba(7,34,53,.9), rgba(7,34,53,0));
 }
 
+.videos__grid{display:grid;gap:var(--sp-4);margin-top:var(--sp-4)}
+.video{
+  overflow:hidden;border-radius:var(--radio);
+  box-shadow:var(--sombra);background:var(--azul-900);
+}
+.video video{display:block;width:100%;height:auto;aspect-ratio:16/9}
+
 .checklist{display:grid;gap:var(--sp-3);max-width:920px;margin:0 auto}
 .checklist__item{
   display:flex;align-items:flex-start;gap:var(--sp-4);
@@ -506,7 +513,7 @@ body.no-scroll{overflow:hidden}
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.22,1,.36,1),transform .6s cubic-bezier(.22,1,.36,1)}
 .reveal.is-visible{opacity:1;transform:none}
 
-:where(.services__grid,.gallery__grid,.checklist) > .reveal:nth-child(2){transition-delay:.07s}
+:where(.services__grid,.gallery__grid,.videos__grid,.checklist) > .reveal:nth-child(2){transition-delay:.07s}
 :where(.services__grid,.gallery__grid,.checklist) > .reveal:nth-child(3){transition-delay:.14s}
 :where(.services__grid,.gallery__grid,.checklist) > .reveal:nth-child(4){transition-delay:.21s}
 :where(.services__grid,.gallery__grid,.checklist) > .reveal:nth-child(5){transition-delay:.28s}
@@ -537,6 +544,7 @@ body.no-scroll{overflow:hidden}
   .about__grid{grid-template-columns:1fr 1fr;align-items:center;gap:var(--sp-8)}
   .services__grid{grid-template-columns:1fr 1fr}
   .gallery__grid{grid-template-columns:1fr 1fr}
+  .videos__grid{grid-template-columns:1fr 1fr}
   .checklist{grid-template-columns:1fr 1fr;gap:var(--sp-4)}
 
   .quote__grid{grid-template-columns:.9fr 1.1fr;align-items:start;gap:var(--sp-8)}
@@ -617,6 +625,7 @@ body.no-scroll{overflow:hidden}
   .service-card__link{font-size:.78rem;min-height:32px;gap:5px}
 
   .gallery__grid{grid-template-columns:1fr 1fr;gap:10px;align-items:start}
+  .videos__grid{gap:10px;margin-top:10px}
   .project{display:flex;flex-direction:column}
   .project__toggle{
     display:flex;align-items:center;justify-content:space-between;gap:8px;width:100%;
